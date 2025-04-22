@@ -1,0 +1,27 @@
+{
+  "workbench.colorTheme": "Visual Studio Dark",
+  "workbench.iconTheme": "vs-seti",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.associations": {
+    "*.scss": "scss"
+  },
+  "scss.validate": true,
+  "scss.lint.unknownAtRules": "ignore",
+  "scss.completion.completePropertyWithSemicolon": true,
+  "scss.completion.triggerPropertyValueCompletion": true,
+  "materialTheme.accent": "Blue",
+  "materialTheme.cache.workbench.settings": {
+    "workbench.colorTheme": "Material Theme",
+    "workbench.iconTheme": "material-icon-theme"
+  },
+  "editor.renderWhitespace": "all",
+  "editor.guides.indentation": true,
+  "editor.guides.bracketPairs": true,
+  "editor.rulers": [80, 100],
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true
+}

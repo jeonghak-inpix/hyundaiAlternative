@@ -1,0 +1,927 @@
+<!doctype html>
+<html lang="ko" class="hda">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>현대얼터너티브 - 개발 페이지 목록</title>
+    <link
+      rel="preload"
+      href="resources/frontAssets/pc/font/YouandiNewKr/YouandiNewKrText-Regular.otf"
+      as="font"
+      type="font/otf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="resources/frontAssets/pc/font/SF-Pro/SF-Pro.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link rel="stylesheet" href="resources/frontAssets/pc/css/main.css" />
+    <style>
+      .dev-index {
+        width: 1200px;
+        margin: 0 auto;
+        padding: 80px 0;
+      }
+
+      .dev-index__title {
+        font-family: 'SF-Pro', sans-serif;
+        font-size: 32px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 40px;
+      }
+
+      .dev-index__search {
+        margin-bottom: 40px;
+      }
+
+      .dev-index__search-input {
+        width: 100%;
+        height: 64px;
+        padding: 0 24px;
+        border: 2px solid #1a1a1a;
+        border-radius: 16px;
+        font-family: 'SF-Pro', sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        color: #1a1a1a;
+      }
+
+      .dev-index__search-input::placeholder {
+        color: #808080;
+      }
+
+      /* 디바이스 탭 스타일 */
+      .dev-index__device-tabs {
+        display: flex;
+        gap: 24px;
+        margin-bottom: 40px;
+      }
+
+      .dev-index__device-tab {
+        position: relative;
+        width: 282px;
+        height: 64px;
+      }
+
+      .dev-index__device-tab button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        font-family: 'SF-Pro', sans-serif;
+        font-size: 24px;
+        line-height: 1.6;
+        font-weight: 700;
+        text-decoration: none;
+        border-radius: 16px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .dev-index__device-tab:not(.active) button {
+        background-color: #f2f2f2;
+        color: #1a1a1a;
+      }
+
+      .dev-index__device-tab.active button {
+        background-color: #561c24;
+        color: #fff;
+      }
+
+      /* 디바이스 콘텐츠 영역 */
+      .dev-index__device-content {
+        display: none;
+      }
+
+      .dev-index__device-content.active {
+        display: block;
+      }
+
+      .dev-index__section {
+        margin-bottom: 40px;
+      }
+
+      .dev-index__section-title {
+        font-family: 'SF-Pro', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 16px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #f2f2f2;
+      }
+
+      .dev-index__list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .dev-index__item {
+        padding: 16px;
+        border-bottom: 1px solid #f2f2f2;
+      }
+
+      .dev-index__item:last-child {
+        border-bottom: none;
+      }
+
+      .dev-index__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #1a1a1a;
+        font-family: 'SF-Pro', sans-serif;
+        font-size: 16px;
+      }
+
+      .dev-index__link:hover {
+        color: #fc642d;
+      }
+
+      .dev-index__page-name {
+        flex: 1;
+      }
+
+      .dev-index__path {
+        color: #808080;
+        font-size: 14px;
+      }
+
+      .dev-index__section.hidden,
+      .dev-index__item.hidden {
+        display: none;
+      }
+
+      .dev-index__no-results {
+        padding: 120px 0;
+        text-align: center;
+        font-family: 'SF-Pro', sans-serif;
+        display: none;
+      }
+
+      .dev-index__no-results-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 16px;
+      }
+
+      .dev-index__no-results-keyword {
+        color: #fc642d;
+      }
+
+      .dev-index__no-results-description {
+        font-size: 20px;
+        color: #808080;
+      }
+
+      /* 모바일 프리뷰 모달 스타일 */
+      .mobile-preview {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1000;
+        padding: 40px;
+      }
+
+      .mobile-preview.active {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .mobile-preview__container {
+        position: relative;
+        width: 375px; /* iPhone 기준 */
+        height: 812px; /* iPhone 기준 */
+        background: #fff;
+        border-radius: 40px;
+        padding: 20px;
+        box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
+      }
+
+      .mobile-preview__device {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 20px;
+        background: #fff;
+        position: relative;
+      }
+
+      .mobile-preview__iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        transform-origin: top left;
+      }
+
+      .mobile-preview__close {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        width: 32px;
+        height: 32px;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      .mobile-preview__close::before,
+      .mobile-preview__close::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 2px;
+        background: #fff;
+      }
+
+      .mobile-preview__close::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      .mobile-preview__close::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+
+      /* 디바이스 선택 */
+      .mobile-preview__devices {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        display: flex;
+        gap: 16px;
+      }
+
+      .mobile-preview__device-select {
+        padding: 8px 16px;
+        background: #fff;
+        border: none;
+        border-radius: 8px;
+        font-family: 'SF-Pro', sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        color: #1a1a1a;
+        cursor: pointer;
+      }
+
+      .mobile-preview__device-select.active {
+        background: #561c24;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dev-index">
+      <h1 class="dev-index__title">현대얼터너티브 개발 페이지 목록</h1>
+
+      <div class="dev-index__search">
+        <input type="text" class="dev-index__search-input" placeholder="화면명을 입력해 주세요." />
+      </div>
+
+      <!-- 디바이스 탭 -->
+      <div class="dev-index__device-tabs">
+        <div class="dev-index__device-tab active">
+          <button type="button" data-device="pc">PC</button>
+        </div>
+        <div class="dev-index__device-tab">
+          <button type="button" data-device="mobile">Mobile</button>
+        </div>
+      </div>
+
+      <!-- PC 화면 목록 -->
+      <div id="pc" class="dev-index__device-content active">
+        <section class="dev-index__section">
+          <h2 class="dev-index__section-title">경영정보 - 회사소식</h2>
+          <ul class="dev-index__list">
+            <li class="dev-index__item">
+              <a
+                href="pc/management/news/FP0010.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">회사소식 목록</span>
+                <span class="dev-index__path">pc/management/news/FP0010.html</span>
+              </a>
+            </li>
+            <li class="dev-index__item">
+              <a
+                href="pc/management/news/FP0011.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">회사소식 검색 결과 없음</span>
+                <span class="dev-index__path">pc/management/news/FP0011.html</span>
+              </a>
+            </li>
+            <li class="dev-index__item">
+              <a
+                href="pc/management/news/FP0012.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">회사소식 목록 없음</span>
+                <span class="dev-index__path">pc/management/news/FP0012.html</span>
+              </a>
+            </li>
+            <li class="dev-index__item">
+              <a
+                href="pc/management/news/FP0013.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">회사소식 상세</span>
+                <span class="dev-index__path">pc/management/news/FP0013.html</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="dev-index__section">
+          <h2 class="dev-index__section-title">경영정보 - 경영공시</h2>
+          <ul class="dev-index__list">
+            <li class="dev-index__item">
+              <a
+                href="pc/management/disclosure/FP0014.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">경영공시 목록</span>
+                <span class="dev-index__path">pc/management/disclosure/FP0014.html</span>
+              </a>
+            </li>
+            <li class="dev-index__item">
+              <a
+                href="pc/management/disclosure/FP0015.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">경영공시 검색 결과 없음</span>
+                <span class="dev-index__path">pc/management/disclosure/FP0015.html</span>
+              </a>
+            </li>
+            <li class="dev-index__item">
+              <a
+                href="pc/management/disclosure/FP0016.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">경영공시 목록 없음</span>
+                <span class="dev-index__path">pc/management/disclosure/FP0016.html</span>
+              </a>
+            </li>
+            <li class="dev-index__item">
+              <a
+                href="pc/management/disclosure/FP0017.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">경영공시 상세</span>
+                <span class="dev-index__path">pc/management/disclosure/FP0017.html</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="dev-index__section">
+          <h2 class="dev-index__section-title">경영정보 - 펀드공시</h2>
+          <ul class="dev-index__list">
+            <li class="dev-index__item">
+              <a
+                href="pc/management/fund_disclosure/FP0018.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">펀드공시 목록</span>
+                <span class="dev-index__path">pc/management/fund_disclosure/FP0018.html</span>
+              </a>
+            </li>
+            <li class="dev-index__item">
+              <a
+                href="pc/management/fund_disclosure/FP0019.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">펀드공시 검색 결과 없음</span>
+                <span class="dev-index__path">pc/management/fund_disclosure/FP0019.html</span>
+              </a>
+            </li>
+            <li class="dev-index__item">
+              <a
+                href="pc/management/fund_disclosure/FP0020.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">펀드공시 목록 없음</span>
+                <span class="dev-index__path">pc/management/fund_disclosure/FP0020.html</span>
+              </a>
+            </li>
+            <li class="dev-index__item">
+              <a
+                href="pc/management/fund_disclosure/FP0021.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">펀드공시 상세</span>
+                <span class="dev-index__path">pc/management/fund_disclosure/FP0021.html</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="dev-index__section">
+          <h2 class="dev-index__section-title">경영정보 - 인재채용</h2>
+          <ul class="dev-index__list">
+            <li class="dev-index__item">
+              <a
+                href="pc/management/careers/FP0022.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">인재채용 목록</span>
+                <span class="dev-index__path">pc/management/careers/FP0022.html</span>
+              </a>
+            </li>
+            <li class="dev-index__item">
+              <a
+                href="pc/management/careers/FP0023.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">인재채용 검색 결과 없음</span>
+                <span class="dev-index__path">pc/management/careers/FP0023.html</span>
+              </a>
+            </li>
+            <li class="dev-index__item">
+              <a
+                href="pc/management/careers/FP0024.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">인재채용 목록 없음</span>
+                <span class="dev-index__path">pc/management/careers/FP0024.html</span>
+              </a>
+            </li>
+            <li class="dev-index__item">
+              <a
+                href="pc/management/careers/FP0025.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">인재채용 상세</span>
+                <span class="dev-index__path">pc/management/careers/FP0025.html</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="dev-index__section">
+          <h2 class="dev-index__section-title">공통 리소스</h2>
+          <ul class="dev-index__list">
+            <li class="dev-index__item">
+              <a
+                href="resources/frontAssets/pc/css/main.css"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">PC 메인 스타일시트</span>
+                <span class="dev-index__path">resources/frontAssets/pc/css/main.css</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- Mobile 화면 목록 -->
+      <div id="mobile" class="dev-index__device-content">
+        <section class="dev-index__section">
+          <h2 class="dev-index__section-title">경영정보 - 회사소식</h2>
+          <ul class="dev-index__list">
+            <li class="dev-index__item">
+              <a
+                href="mo/management/news/FP0010.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">회사소식 목록</span>
+                <span class="dev-index__path">mo/management/news/FP0010.html</span>
+              </a>
+            </li>
+            <li class="dev-index__item">
+              <a
+                href="mo/management/news/FP0011.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">회사소식 검색 결과 없음</span>
+                <span class="dev-index__path">mo/management/news/FP0011.html</span>
+              </a>
+            </li>
+            <li class="dev-index__item">
+              <a
+                href="mo/management/news/FP0012.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">회사소식 목록 없음</span>
+                <span class="dev-index__path">mo/management/news/FP0012.html</span>
+              </a>
+            </li>
+            <li class="dev-index__item">
+              <a
+                href="mo/management/news/FP0013.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">회사소식 상세</span>
+                <span class="dev-index__path">mo/management/news/FP0013.html</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="dev-index__section">
+          <h2 class="dev-index__section-title">경영정보 - 경영공시</h2>
+          <ul class="dev-index__list">
+            <li class="dev-index__item">
+              <a
+                href="mo/management/disclosure/MP0014.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">경영공시 목록</span>
+                <span class="dev-index__path">mo/management/disclosure/MP0014.html</span>
+              </a>
+            </li>
+            <li class="dev-index__item">
+              <a
+                href="mo/management/disclosure/MP0015.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">경영공시 검색 결과 없음</span>
+                <span class="dev-index__path">mo/management/disclosure/MP0015.html</span>
+              </a>
+            </li>
+            <li class="dev-index__item">
+              <a
+                href="mo/management/disclosure/MP0016.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">경영공시 목록 없음</span>
+                <span class="dev-index__path">mo/management/disclosure/MP0016.html</span>
+              </a>
+            </li>
+            <li class="dev-index__item">
+              <a
+                href="mo/management/disclosure/MP0017.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">경영공시 상세</span>
+                <span class="dev-index__path">mo/management/disclosure/MP0017.html</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="dev-index__section">
+          <h2 class="dev-index__section-title">경영정보 - 펀드공시</h2>
+          <ul class="dev-index__list">
+            <li class="dev-index__item">
+              <a
+                href="mo/management/fund_disclosure/MP0018.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">펀드공시 목록</span>
+                <span class="dev-index__path">mo/management/fund_disclosure/MP0018.html</span>
+              </a>
+            </li>
+            <li class="dev-index__item">
+              <a
+                href="mo/management/fund_disclosure/MP0019.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">펀드공시 검색 결과 없음</span>
+                <span class="dev-index__path">mo/management/fund_disclosure/MP0019.html</span>
+              </a>
+            </li>
+            <li class="dev-index__item">
+              <a
+                href="mo/management/fund_disclosure/MP0020.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">펀드공시 목록 없음</span>
+                <span class="dev-index__path">mo/management/fund_disclosure/MP0020.html</span>
+              </a>
+            </li>
+            <li class="dev-index__item">
+              <a
+                href="mo/management/fund_disclosure/MP0021.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">펀드공시 상세</span>
+                <span class="dev-index__path">mo/management/fund_disclosure/MP0021.html</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="dev-index__section">
+          <h2 class="dev-index__section-title">경영정보 - 인재채용</h2>
+          <ul class="dev-index__list">
+            <li class="dev-index__item">
+              <a
+                href="mo/management/careers/MP0022.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">인재채용 목록</span>
+                <span class="dev-index__path">mo/management/careers/MP0022.html</span>
+              </a>
+            </li>
+            <li class="dev-index__item">
+              <a
+                href="mo/management/careers/MP0023.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">인재채용 검색 결과 없음</span>
+                <span class="dev-index__path">mo/management/careers/MP0023.html</span>
+              </a>
+            </li>
+            <li class="dev-index__item">
+              <a
+                href="mo/management/careers/MP0024.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">인재채용 목록 없음</span>
+                <span class="dev-index__path">mo/management/careers/MP0024.html</span>
+              </a>
+            </li>
+            <li class="dev-index__item">
+              <a
+                href="mo/management/careers/MP0025.html"
+                class="dev-index__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="dev-index__page-name">인재채용 상세</span>
+                <span class="dev-index__path">mo/management/careers/MP0025.html</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- 검색 결과 없음 -->
+      <div class="dev-index__no-results">
+        <p class="dev-index__no-results-title">
+          "<span class="dev-index__no-results-keyword"></span>"에 대한 검색 결과가 없습니다.
+        </p>
+        <p class="dev-index__no-results-description">검색어를 변경해 주세요.</p>
+      </div>
+    </div>
+
+    <!-- 모바일 프리뷰 모달 추가 -->
+    <div class="mobile-preview">
+      <div class="mobile-preview__container">
+        <div class="mobile-preview__devices">
+          <button
+            type="button"
+            class="mobile-preview__device-select active"
+            data-width="375"
+            data-height="812"
+          >
+            iPhone 12/13
+          </button>
+          <button
+            type="button"
+            class="mobile-preview__device-select"
+            data-width="390"
+            data-height="844"
+          >
+            iPhone 14 Pro
+          </button>
+          <button
+            type="button"
+            class="mobile-preview__device-select"
+            data-width="360"
+            data-height="800"
+          >
+            Android
+          </button>
+        </div>
+        <div class="mobile-preview__device">
+          <iframe
+            class="mobile-preview__iframe"
+            allow="fullscreen"
+            sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+          >
+          </iframe>
+        </div>
+        <button type="button" class="mobile-preview__close">닫기</button>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // 탭 전환 기능
+        const deviceTabs = document.querySelectorAll('.dev-index__device-tab');
+        const deviceContents = document.querySelectorAll('.dev-index__device-content');
+
+        deviceTabs.forEach(tab => {
+          tab.addEventListener('click', e => {
+            const device = tab.querySelector('button').dataset.device;
+
+            // 탭 활성화
+            deviceTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            // 콘텐츠 전환
+            deviceContents.forEach(content => {
+              content.classList.remove('active');
+              if (content.id === device) {
+                content.classList.add('active');
+              }
+            });
+
+            // 검색 결과 업데이트
+            updateSearch();
+          });
+        });
+
+        // 검색 기능
+        const searchInput = document.querySelector('.dev-index__search-input');
+        const noResults = document.querySelector('.dev-index__no-results');
+        const noResultsKeyword = document.querySelector('.dev-index__no-results-keyword');
+
+        function updateSearch() {
+          const searchTerm = searchInput.value.toLowerCase().trim();
+          const activeContent = document.querySelector('.dev-index__device-content.active');
+          const sections = activeContent.querySelectorAll('.dev-index__section');
+          let hasResults = false;
+
+          if (!searchTerm) {
+            sections.forEach(section => {
+              section.classList.remove('hidden');
+              section.querySelectorAll('.dev-index__item').forEach(item => {
+                item.classList.remove('hidden');
+              });
+            });
+            noResults.style.display = 'none';
+            return;
+          }
+
+          sections.forEach(section => {
+            const items = section.querySelectorAll('.dev-index__item');
+            let sectionHasResults = false;
+
+            items.forEach(item => {
+              const pageName = item
+                .querySelector('.dev-index__page-name')
+                .textContent.toLowerCase();
+              const path = item.querySelector('.dev-index__path').textContent.toLowerCase();
+
+              if (pageName.includes(searchTerm) || path.includes(searchTerm)) {
+                item.classList.remove('hidden');
+                sectionHasResults = true;
+                hasResults = true;
+              } else {
+                item.classList.add('hidden');
+              }
+            });
+
+            if (sectionHasResults) {
+              section.classList.remove('hidden');
+            } else {
+              section.classList.add('hidden');
+            }
+          });
+
+          if (!hasResults) {
+            noResults.style.display = 'block';
+            noResultsKeyword.textContent = searchTerm;
+          } else {
+            noResults.style.display = 'none';
+          }
+        }
+
+        searchInput.addEventListener('input', updateSearch);
+
+        // 모바일 프리뷰 기능
+        const mobilePreview = document.querySelector('.mobile-preview');
+        const mobileIframe = document.querySelector('.mobile-preview__iframe');
+        const mobilePreviewClose = document.querySelector('.mobile-preview__close');
+        const deviceSelects = document.querySelectorAll('.mobile-preview__device-select');
+        const mobileLinks = document.querySelectorAll('#mobile .dev-index__link');
+
+        // 모바일 링크 클릭 처리
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', e => {
+            e.preventDefault();
+            const url = link.getAttribute('href');
+            mobileIframe.src = url;
+            mobilePreview.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          });
+        });
+
+        // 모달 닫기
+        mobilePreviewClose.addEventListener('click', () => {
+          mobilePreview.classList.remove('active');
+          document.body.style.overflow = '';
+          mobileIframe.src = '';
+        });
+
+        // 배경 클릭 시 닫기
+        mobilePreview.addEventListener('click', e => {
+          if (e.target === mobilePreview) {
+            mobilePreview.classList.remove('active');
+            document.body.style.overflow = '';
+            mobileIframe.src = '';
+          }
+        });
+
+        // 디바이스 선택
+        deviceSelects.forEach(select => {
+          select.addEventListener('click', () => {
+            const width = select.dataset.width;
+            const height = select.dataset.height;
+            const container = document.querySelector('.mobile-preview__container');
+            const device = document.querySelector('.mobile-preview__device');
+
+            // 활성화 상태 변경
+            deviceSelects.forEach(s => s.classList.remove('active'));
+            select.classList.add('active');
+
+            // 컨테이너 크기 조정
+            container.style.width = `${width}px`;
+            container.style.height = `${height}px`;
+
+            // iframe 크기 조정
+            device.style.width = `${width}px`;
+            device.style.height = `${height}px`;
+          });
+        });
+
+        // PC 링크 처리
+        const pcLinks = document.querySelectorAll('.dev-index__link[data-device="pc"]');
+        pcLinks.forEach(link => {
+          link.setAttribute('target', '_blank');
+          // 보안을 위해 rel="noopener noreferrer" 추가
+          link.setAttribute('rel', 'noopener noreferrer');
+        });
+      });
+    </script>
+  </body>
+</html>
