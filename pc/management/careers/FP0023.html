@@ -81,26 +81,39 @@
           </div>
           <div class="divider"></div>
           <div class="select-wrap">
-            <button type="button" class="select-button">정규직</button>
-            <div class="select-dropdown" style="display: none">
-              <div class="select-dropdown__title">정규직</div>
+            <button type="button" class="select-button">근무형태</button>
+            <div class="select-dropdown">
+              <button type="button" class="select-dropdown__title">근무형태</button>
               <ul class="select-dropdown__list">
-                <li class="select-dropdown__item active"><button type="button">정규직</button></li>
-                <li class="select-dropdown__item"><button type="button">경력</button></li>
-                <li class="select-dropdown__item"><button type="button">신입</button></li>
+                <li class="select-dropdown__item">
+                  <label for="typeA-1">전체</label><input type="checkbox" id="typeA-1" />
+                </li>
+                <li class="select-dropdown__item">
+                  <label for="typeA-2">정규직</label><input type="checkbox" id="typeA-2" />
+                </li>
+                <li class="select-dropdown__item">
+                  <label for="typeA-3">계약직</label><input type="checkbox" id="typeA-3" />
+                </li>
               </ul>
             </div>
           </div>
           <div class="divider"></div>
           <div class="select-wrap">
-            <button type="button" class="select-button">전체</button>
-            <div class="select-dropdown" style="display: none">
+            <button type="button" class="select-button">접수상태</button>
+            <div class="select-dropdown">
+              <button type="button" class="select-dropdown__title">접수상태</button>
               <ul class="select-dropdown__list">
-                <li class="select-dropdown__item active"><button type="button">전체</button></li>
-                <li class="select-dropdown__item"><button type="button">접수전</button></li>
-                <li class="select-dropdown__item"><button type="button">접수중</button></li>
-                <li class="select-dropdown__item active">
-                  <button type="button">접수마감</button>
+                <li class="select-dropdown__item">
+                  <label for="typeB-1">전체</label><input type="checkbox" id="typeB-1" />
+                </li>
+                <li class="select-dropdown__item">
+                  <label for="typeB-2">접수전</label><input type="checkbox" id="typeB-2" />
+                </li>
+                <li class="select-dropdown__item">
+                  <label for="typeB-3">접수중</label><input type="checkbox" id="typeB-3" />
+                </li>
+                <li class="select-dropdown__item">
+                  <label for="typeB-4">접수마감</label><input type="checkbox" id="typeB-4" />
                 </li>
               </ul>
             </div>
@@ -133,7 +146,7 @@
       </div>
     </footer>
 
-    <!-- <div class="modal" tabindex="-1">
+    <div class="modal" tabindex="-1">
       <div class="modal-dialog sm">
         <div class="modal-content">
           <div class="modal-body">
@@ -145,6 +158,6 @@
         </div>
       </div>
     </div>
-    <div class="modal__dim"></div> -->
+    <div class="modal__dim"></div>
   </body>
 </html>
