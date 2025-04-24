@@ -53,16 +53,15 @@
       <div class="content-container">
         <div class="tab-menu">
           <ul class="tab-list">
-            <li class="tab-item link-horizontal"><a href="#">회사소식</a></li>
-            <li class="tab-item link-vertical"><a href="#">경영공시</a></li>
-            <li class="tab-item active"><a href="#">펀드공시</a></li>
-            <li class="tab-item"><a href="#">인재채용</a></li>
+            <li class="tab-item link-horizontal link-vertical"><a href="#">회사소식</a></li>
+            <li class="tab-item"><a href="#">경영공시</a></li>
+            <li class="tab-item"><a href="#">펀드공시</a></li>
+            <li class="tab-item active"><a href="#">인재채용</a></li>
           </ul>
         </div>
 
         <div class="not-result">
-          <p class="not-result__title"></p>
-          <p class="not-result__title">등록된 회사 소식이 없어요.</p>
+          <p class="not-result__title">등록된 채용정보가 없어요.</p>
         </div>
 
         <div class="button-top-wrapper">
@@ -83,7 +82,9 @@
       </div>
     </footer>
 
-    <div class="modal" tabindex="-1" style="display: none">
+    <!-- 일반 모달 -->
+    <div class="modal general-modal" tabindex="-1" style="display: none">
+      <div class="modal__dim"></div>
       <div class="modal-dialog sm">
         <div class="modal-content">
           <div class="modal-body">
@@ -95,6 +96,59 @@
         </div>
       </div>
     </div>
-    <div class="modal__dim" style="display: none"></div>
+
+    <!-- 필터 모달 -->
+    <div class="modal" id="modal-filter" style="display: none">
+      <div class="modal__dim"></div>
+      <div class="modal-filter">
+        <div class="modal-filter__header">
+          <div class="modal-filter__header-title">필터 선택</div>
+          <button type="button" class="close"><span class="blind">닫기</span></button>
+        </div>
+        <div class="modal-filter__content">
+          <div class="form-item">
+            <h4 class="form-item__title">근무형태</h4>
+            <div class="grid-wrap col-3 gap-4">
+              <div class="checkbox-wrap">
+                <label for="work-type-all">전체</label><input type="checkbox" id="work-type-all" />
+              </div>
+              <div class="checkbox-wrap">
+                <label for="work-type-regular">정규직</label
+                ><input type="checkbox" id="work-type-regular" />
+              </div>
+              <div class="checkbox-wrap">
+                <label for="work-type-contract">계약직</label
+                ><input type="checkbox" id="work-type-contract" />
+              </div>
+            </div>
+          </div>
+          <div class="form-item mt-[20px]">
+            <h4 class="form-item__title">접수상태</h4>
+            <div class="grid-wrap col-2 row-2 gap-4">
+              <div class="checkbox-wrap">
+                <label for="status-type-all">전체</label
+                ><input type="checkbox" id="status-type-all" />
+              </div>
+              <div class="checkbox-wrap">
+                <label for="status-type-pre">접수전</label
+                ><input type="checkbox" id="status-type-pre" />
+              </div>
+              <div class="checkbox-wrap">
+                <label for="status-type-ing">접수중</label
+                ><input type="checkbox" id="status-type-ing" />
+              </div>
+              <div class="checkbox-wrap">
+                <label for="status-type-close">접수마감</label
+                ><input type="checkbox" id="status-type-close" />
+              </div>
+            </div>
+          </div>
+          <div class="button-wrap">
+            <button type="button" class="button-reset">초기화</button>
+            <button type="button" class="button-apply">적용하기</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
