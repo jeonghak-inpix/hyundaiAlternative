@@ -154,6 +154,14 @@ body {
     background: url('../../../frontAssets/mo/image/visual_img_sub.png') no-repeat;
     background-size: 100% 100%;
     background-position: center;
+
+    &.esg-1 {
+      background-image: url('../../../frontAssets/mo/image/visual_img_esg_1.png');
+    }
+
+    &.esg-2 {
+      background-image: url('../../../frontAssets/mo/image/visual_img_esg_2.png');
+    }
   }
 
   .page-title {

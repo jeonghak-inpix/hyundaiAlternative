@@ -131,6 +131,12 @@ body {
   background-size: 100% 100%;
   background-position: center;
 }
+.page-header__content.esg-1 {
+  background-image: url("../../../frontAssets/mo/image/visual_img_esg_1.png");
+}
+.page-header__content.esg-2 {
+  background-image: url("../../../frontAssets/mo/image/visual_img_esg_2.png");
+}
 .page-header .page-title {
   font-family: "YouandiNewKr", sans-serif;
   font-size: 28px;
