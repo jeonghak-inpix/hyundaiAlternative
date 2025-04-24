@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>회사소식 - 현대얼터너티브</title>
+    <title>인재채용 - 현대얼터너티브</title>
     <link
       rel="preload"
       href="../../../resources/frontAssets/pc/font/YouandiNewKr/YouandiNewKrText-Regular.otf"
@@ -18,27 +18,27 @@
       type="font/ttf"
       crossorigin
     />
-    <link rel="stylesheet" href="../../../resources/frontAssets/pc/css/main.css" />
-    <script src="../../../resources/frontAssets/pc/js/main.js" defer></script>
+    <link rel="stylesheet" href="../../../resources/frontAssets/mo/css/main.css" />
+    <script src="../../../resources/frontAssets/mo/js/main.js" defer></script>
   </head>
   <body>
     <header class="header">
       <div class="header__container">
         <h1 class="header__logo">
           <a href="/">
-            <img
-              src="../../../resources/frontAssets/pc/image/hyundai_alternative_logo.png"
-              alt="현대얼터너티브"
-            />
+            <img src="../../../resources/frontAssets/mo/image/logo_main.png" alt="현대얼터너티브" />
           </a>
         </h1>
+        <button type="button" class="nav-toggle"><span class="blind">메뉴열기</span></button>
         <nav class="header__nav">
-          <ul class="nav__list">
-            <li class="nav__item"><a href="#">회사소개</a></li>
-            <li class="nav__item"><a href="#">포트폴리오</a></li>
-            <li class="nav__item"><a href="#">ESG</a></li>
-            <li class="nav__item"><a href="#">경영정보</a></li>
-          </ul>
+          <div class="nav__list-wrap">
+            <ul class="nav__list">
+              <li class="nav__item"><a href="#">회사소개</a></li>
+              <li class="nav__item"><a href="#">포트폴리오</a></li>
+              <li class="nav__item"><a href="#">ESG</a></li>
+              <li class="nav__item"><a href="#">경영정보</a></li>
+            </ul>
+          </div>
         </nav>
       </div>
     </header>
@@ -53,15 +53,16 @@
       <div class="content-container">
         <div class="tab-menu">
           <ul class="tab-list">
-            <li class="tab-item link"><a href="#">회사소식</a></li>
-            <li class="tab-item link"><a href="#">경영공시</a></li>
-            <li class="tab-item"><a href="#">펀드공시</a></li>
-            <li class="tab-item active"><a href="#">인재채용</a></li>
+            <li class="tab-item link-horizontal"><a href="#">회사소식</a></li>
+            <li class="tab-item link-vertical"><a href="#">경영공시</a></li>
+            <li class="tab-item active"><a href="#">펀드공시</a></li>
+            <li class="tab-item"><a href="#">인재채용</a></li>
           </ul>
         </div>
 
-        <div class="not-result mt-[80px]">
-          <p class="not-result__title">등록된 채용정보가 없어요.</p>
+        <div class="not-result">
+          <p class="not-result__title"></p>
+          <p class="not-result__title">등록된 회사 소식이 없어요.</p>
         </div>
 
         <div class="button-top-wrapper">
@@ -74,15 +75,15 @@
       <div class="footer__container">
         <div class="footer__info">
           <address class="footer__address">
-            서울특별시 강남구 테헤란로 123 현대얼터너티브 빌딩
+            서울특별시 영등포구 의사당대로 3 <br />(현대카드 빌딩 1관 2층)
             <p class="footer__phone">대표전화 +82-2-6011-0420</p>
           </address>
-          <p class="footer__copyright">© 2024 현대얼터너티브. All Rights Reserved.</p>
+          <p class="footer__copyright">© Hyundai Alternative Co., Ltd.</p>
         </div>
       </div>
     </footer>
 
-    <!-- <div class="modal" tabindex="-1">
+    <div class="modal" tabindex="-1" style="display: none">
       <div class="modal-dialog sm">
         <div class="modal-content">
           <div class="modal-body">
@@ -94,6 +95,6 @@
         </div>
       </div>
     </div>
-    <div class="modal__dim"></div> -->
+    <div class="modal__dim" style="display: none"></div>
   </body>
 </html>

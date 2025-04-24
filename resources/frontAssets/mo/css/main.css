@@ -160,7 +160,7 @@ body {
 .tab-item:not(.active) a {
   background-color: #f2f2f2;
 }
-.tab-item.link-vertical a::before {
+.tab-item.link-vertical a::after {
   position: absolute;
   top: 100%;
   left: 50%;
