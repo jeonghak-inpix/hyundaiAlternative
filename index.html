@@ -206,6 +206,18 @@
         background: #fff;
         border-radius: 40px;
         box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
+        cursor: grab; /* 드래그 가능 커서 */
+        /* 초기 위치는 CSS로 설정하거나 JS에서 설정 가능 */
+        /* top: 50%; left: 50%; transform: translate(-50%, -50%); -> flex 중앙 정렬과 중복될 수 있음 */
+      }
+
+      .mobile-preview--dragging .mobile-preview__container {
+        cursor: grabbing; /* 드래그 중 커서 */
+      }
+
+      /* 드래그 중 body 텍스트 선택 방지 */
+      body.is-dragging {
+        user-select: none;
       }
 
       .mobile-preview__device {
@@ -737,8 +749,8 @@
       </div>
     </div>
 
-    <!-- 모바일 프리뷰 모달 추가 -->
-    <div class="mobile-preview">
+    <!-- 모바일 프리뷰 모달 (유지) -->
+    <div class="mobile-preview" id="mobilePreviewModal">
       <div class="mobile-preview__container">
         <div class="mobile-preview__devices">
           <button
@@ -813,6 +825,7 @@
         function updateSearch() {
           const searchTerm = searchInput.value.toLowerCase().trim();
           const activeContent = document.querySelector('.dev-index__device-content.active');
+          if (!activeContent) return; // 활성 콘텐츠 없으면 종료
           const sections = activeContent.querySelectorAll('.dev-index__section');
           let hasResults = false;
 
@@ -832,10 +845,9 @@
             let sectionHasResults = false;
 
             items.forEach(item => {
-              const pageName = item
-                .querySelector('.dev-index__page-name')
-                .textContent.toLowerCase();
-              const path = item.querySelector('.dev-index__path').textContent.toLowerCase();
+              const pageName =
+                item.querySelector('.dev-index__page-name')?.textContent.toLowerCase() || ''; // null 체크 추가
+              const path = item.querySelector('.dev-index__path')?.textContent.toLowerCase() || ''; // null 체크 추가
 
               if (pageName.includes(searchTerm) || path.includes(searchTerm)) {
                 item.classList.remove('hidden');
@@ -863,67 +875,158 @@
 
         searchInput.addEventListener('input', updateSearch);
 
-        // 모바일 프리뷰 기능
-        const mobilePreview = document.querySelector('.mobile-preview');
-        const mobileIframe = document.querySelector('.mobile-preview__iframe');
-        const mobilePreviewClose = document.querySelector('.mobile-preview__close');
-        const deviceSelects = document.querySelectorAll('.mobile-preview__device-select');
-        const mobileLinks = document.querySelectorAll('#mobile .dev-index__link');
+        // 모바일 프리뷰 기능 (기존 로직 유지 및 확인)
+        const mobilePreview = document.getElementById('mobilePreviewModal'); // ID로 정확히 선택
+        const mobileIframe = mobilePreview?.querySelector('.mobile-preview__iframe'); // 모달 내부 iframe 선택
+        const mobilePreviewClose = mobilePreview?.querySelector('.mobile-preview__close');
+        const deviceSelects = mobilePreview?.querySelectorAll('.mobile-preview__device-select');
+        const mobileLinks = document.querySelectorAll('#mobile .dev-index__link'); // 모바일 탭 내부 링크만 선택
 
-        // 모바일 링크 클릭 처리
-        mobileLinks.forEach(link => {
-          link.addEventListener('click', e => {
-            e.preventDefault();
-            const url = link.getAttribute('href');
-            mobileIframe.src = url;
-            mobilePreview.classList.add('active');
-            document.body.style.overflow = 'hidden';
+        if (mobilePreview && mobileIframe && mobilePreviewClose) {
+          // 모바일 링크 클릭 처리
+          mobileLinks.forEach(link => {
+            link.addEventListener('click', e => {
+              e.preventDefault();
+              const url = link.getAttribute('href');
+              if (url) {
+                mobileIframe.src = url;
+                mobilePreview.classList.add('active');
+                document.body.style.overflow = 'hidden';
+              }
+            });
           });
-        });
 
-        // 모달 닫기
-        mobilePreviewClose.addEventListener('click', () => {
-          mobilePreview.classList.remove('active');
-          document.body.style.overflow = '';
-          mobileIframe.src = '';
-        });
-
-        // 배경 클릭 시 닫기
-        mobilePreview.addEventListener('click', e => {
-          if (e.target === mobilePreview) {
+          // 모달 닫기
+          mobilePreviewClose.addEventListener('click', () => {
             mobilePreview.classList.remove('active');
             document.body.style.overflow = '';
-            mobileIframe.src = '';
-          }
-        });
-
-        // 디바이스 선택
-        deviceSelects.forEach(select => {
-          select.addEventListener('click', () => {
-            const width = select.dataset.width;
-            const height = select.dataset.height;
-            const container = document.querySelector('.mobile-preview__container');
-            const device = document.querySelector('.mobile-preview__device');
-
-            // 활성화 상태 변경
-            deviceSelects.forEach(s => s.classList.remove('active'));
-            select.classList.add('active');
-
-            // 컨테이너 크기 조정
-            container.style.width = `${width}px`;
-            container.style.height = `${height}px`;
-
-            // iframe 크기 조정
-            device.style.width = `${width}px`;
-            device.style.height = `${height}px`;
+            mobileIframe.src = 'about:blank'; // iframe 내용 비우기
           });
-        });
 
-        // PC 링크 처리
-        const pcLinks = document.querySelectorAll('.dev-index__link[data-device="pc"]');
+          // 배경 클릭 시 닫기
+          mobilePreview.addEventListener('click', e => {
+            if (e.target === mobilePreview) {
+              mobilePreview.classList.remove('active');
+              document.body.style.overflow = '';
+              mobileIframe.src = 'about:blank'; // iframe 내용 비우기
+            }
+          });
+
+          // --- 드래그 기능 추가 ---
+          const draggableContainer = mobilePreview.querySelector('.mobile-preview__container');
+          let isDragging = false;
+          let currentX;
+          let currentY;
+          let initialX;
+          let initialY;
+          let xOffset = 0;
+          let yOffset = 0;
+
+          draggableContainer.addEventListener('mousedown', dragStart);
+          // 터치 이벤트 추가
+          draggableContainer.addEventListener('touchstart', dragStart, { passive: false }); // passive:false for preventDefault
+
+          function dragStart(e) {
+            // iframe 내부 클릭 시 드래그 방지 (선택 사항)
+            if (e.target.closest('.mobile-preview__device')) {
+              // return;
+            }
+
+            // e.type에 따라 좌표 계산
+            if (e.type === 'touchstart') {
+              initialX = e.touches[0].clientX - xOffset;
+              initialY = e.touches[0].clientY - yOffset;
+            } else {
+              initialX = e.clientX - xOffset;
+              initialY = e.clientY - yOffset;
+              // 기본 드래그 동작 방지
+              e.preventDefault();
+            }
+
+            // z-index 조정 (드래그 시 다른 요소 위로)
+            // draggableContainer.style.zIndex = "1001";
+
+            document.addEventListener('mouseup', dragEnd);
+            document.addEventListener('mousemove', drag);
+            document.addEventListener('touchend', dragEnd);
+            document.addEventListener('touchmove', drag, { passive: false }); // passive:false for preventDefault
+
+            isDragging = true;
+            document.body.classList.add('is-dragging'); // 바디에 클래스 추가
+            mobilePreview.classList.add('mobile-preview--dragging'); // 모달에 클래스 추가
+          }
+
+          function drag(e) {
+            if (isDragging) {
+              // 기본 스크롤 등 방지 (터치)
+              e.preventDefault();
+
+              if (e.type === 'touchmove') {
+                currentX = e.touches[0].clientX - initialX;
+                currentY = e.touches[0].clientY - initialY;
+              } else {
+                currentX = e.clientX - initialX;
+                currentY = e.clientY - initialY;
+              }
+
+              xOffset = currentX;
+              yOffset = currentY;
+
+              setTranslate(currentX, currentY, draggableContainer);
+            }
+          }
+
+          function setTranslate(xPos, yPos, el) {
+            el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+          }
+
+          function dragEnd(e) {
+            if (isDragging) {
+              initialX = currentX;
+              initialY = currentY;
+
+              isDragging = false;
+              document.body.classList.remove('is-dragging');
+              mobilePreview.classList.remove('mobile-preview--dragging');
+
+              document.removeEventListener('mouseup', dragEnd);
+              document.removeEventListener('mousemove', drag);
+              document.removeEventListener('touchend', dragEnd);
+              document.removeEventListener('touchmove', drag);
+            }
+          }
+          // --- 드래그 기능 끝 ---
+
+          // 디바이스 선택
+          if (deviceSelects) {
+            deviceSelects.forEach(select => {
+              select.addEventListener('click', () => {
+                const width = select.dataset.width;
+                const height = select.dataset.height;
+                const container = mobilePreview.querySelector('.mobile-preview__container');
+                const device = mobilePreview.querySelector('.mobile-preview__device');
+
+                if (container && device) {
+                  // 활성화 상태 변경
+                  deviceSelects.forEach(s => s.classList.remove('active'));
+                  select.classList.add('active');
+                  // 컨테이너/디바이스 크기 조정
+                  container.style.width = `${width}px`;
+                  container.style.height = `${height}px`;
+                  device.style.width = `${width}px`;
+                  device.style.height = `${height}px`;
+                }
+              });
+            });
+          }
+        } else {
+          console.warn('Mobile preview modal elements not found. Preview disabled.');
+        }
+
+        // PC 링크 target="_blank" 설정 (기존 유지)
+        const pcLinks = document.querySelectorAll('#pc .dev-index__link');
         pcLinks.forEach(link => {
           link.setAttribute('target', '_blank');
-          // 보안을 위해 rel="noopener noreferrer" 추가
           link.setAttribute('rel', 'noopener noreferrer');
         });
       });

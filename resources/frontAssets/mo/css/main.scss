@@ -1,55 +1,49 @@
-// 웹폰트 설정
+@charset "UTF-8";
 @font-face {
   font-family: 'YouandiNewKr';
-  src: url('../font/YouandiNewKr/YouandiNewKrText-Light.otf') format('opentype');
+  src: url('../font/YouandiNewKr/YouandiNewKrText-Light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: 'YouandiNewKr';
-  src: url('../font/YouandiNewKr/YouandiNewKrText-Regular.otf') format('opentype');
+  src: url('../font/YouandiNewKr/YouandiNewKrText-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: 'YouandiNewKr';
-  src: url('../font/YouandiNewKr/YouandiNewKrText-Medium.otf') format('opentype');
+  src: url('../font/YouandiNewKr/YouandiNewKrText-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: 'YouandiNewKr';
-  src: url('../font/YouandiNewKr/YouandiNewKrText-Bold.otf') format('opentype');
+  src: url('../font/YouandiNewKr/YouandiNewKrText-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: 'YouandiNewKr';
-  src: url('../font/YouandiNewKr/YouandiNewKrText-ExtraBold.otf') format('opentype');
+  src: url('../font/YouandiNewKr/YouandiNewKrText-ExtraBold.woff2') format('woff2');
   font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: 'SF-Pro';
-  src: url('../font/SF-Pro/SF-Pro.ttf') format('truetype');
+  src: url('../font/SF-Pro/SF-Pro.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: 'SF-Pro';
-  src: url('../font/SF-Pro/SF-Pro-Italic.ttf') format('truetype');
+  src: url('../font/SF-Pro/SF-Pro-Italic.woff2') format('woff2');
   font-weight: normal;
   font-style: italic;
   font-display: swap;
