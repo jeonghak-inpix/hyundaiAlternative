@@ -79,7 +79,7 @@ body {
   min-height: 100vh;
   font-family: "SF-Pro", sans-serif, "YouandiNewKr", sans-serif, sans-serif;
   line-height: 1.6;
-  color: #333333;
+  color: #1a1a1a;
   background-color: #ffffff;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -880,6 +880,313 @@ footer {
   align-items: center;
   justify-content: center;
   gap: 4px;
+}
+
+/* FP0009.html ESG Content Styles */
+.esg-introduction {
+  margin-bottom: 40px;
+}
+.esg-introduction__title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #8a1f2d;
+  margin-bottom: 12px;
+}
+.esg-introduction__description {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 700;
+}
+
+.esg-strategy {
+  border-top: 2px solid #f2f2f2;
+  padding-top: 40px;
+  margin-bottom: 40px;
+}
+.esg-strategy__title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+.esg-strategy__description {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 700;
+  color: #333;
+}
+
+.esg-pillar__image-wrapper {
+  height: 319px;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 20px;
+}
+.esg-pillar__image-wrapper.environment {
+  background-image: url("../../../frontAssets/mo/image/background_esg_2_1.jpeg");
+}
+.esg-pillar__image-wrapper.social {
+  background-image: url("../../../frontAssets/mo/image/background_esg_2_2.png");
+}
+.esg-pillar__image-wrapper.governance {
+  background-image: url("../../../frontAssets/mo/image/background_esg_2_3.png");
+}
+
+.esg-pillar {
+  margin-bottom: 48px;
+}
+.esg-pillar:last-child {
+  margin-bottom: 0;
+}
+.esg-pillar__category {
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 700;
+  color: #fc642d;
+  margin-bottom: 4px;
+}
+.esg-pillar__title {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+.esg-pillar__list {
+  list-style: none;
+  padding-left: 8px;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+.esg-pillar__item {
+  position: relative;
+  margin-bottom: 4px;
+}
+.esg-pillar__item::before {
+  content: "·";
+  position: absolute;
+  left: -8px;
+  top: 0;
+  font-weight: 700;
+}
+.esg-pillar__item:last-child {
+  margin-bottom: 0;
+}
+
+/* FP0008.html Risk Management Styles */
+.risk-management {
+  margin-bottom: 64px;
+}
+.risk-management:last-of-type {
+  margin-bottom: 0;
+}
+.risk-management__title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+.risk-management__description {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+/* 운영체계 플로우차트 */
+.system-flowchart {
+  display: grid;
+  grid-template-rows: 64px 132px auto;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.system-flowchart .col {
+  background-color: #561c24;
+  border-radius: 12px;
+}
+.system-flowchart .col:nth-child(1) {
+  grid-column: span 2;
+}
+.system-flowchart .col:nth-child(4) {
+  grid-column: span 2;
+}
+.system-flowchart .unit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.system-flowchart .unit--committee {
+  position: relative;
+  flex-direction: column;
+  text-align: center;
+}
+.system-flowchart .unit--committee::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 64px;
+  height: 12px;
+  background: url("../../../frontAssets/mo/image/shape_rectangle_subtract_1.png") no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+}
+.system-flowchart .unit--committee::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 64px;
+  height: 12px;
+  background: url("../../../frontAssets/mo/image/shape_rectangle_subtract_1.png") no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+}
+.system-flowchart .unit--committee .unit__title {
+  display: flex;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+}
+.system-flowchart .unit--committee .unit__details {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+}
+.system-flowchart .unit__title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+  display: block;
+  color: #fff;
+}
+.system-flowchart .unit__details {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-top: 4px;
+  color: #fff;
+}
+.system-flowchart .unit--compliance-dept {
+  padding: 16px 12px 12px 12px;
+  text-align: center;
+}
+.system-flowchart .sub-unit {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+  text-align: left;
+}
+.system-flowchart .sub-unit__title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #561c24;
+  margin-bottom: 8px;
+  display: block;
+  text-align: center;
+}
+.system-flowchart .sub-unit__list {
+  list-style: none;
+  border-top: 1px solid #f2f2f2;
+  padding-top: 12px;
+  padding-left: 8px;
+}
+.system-flowchart .sub-unit__item {
+  font-size: 14px;
+  line-height: 1.4;
+  position: relative;
+  margin-bottom: 4px;
+}
+.system-flowchart .sub-unit__item::before {
+  content: "·";
+  position: absolute;
+  left: -8px;
+  font-weight: 700;
+  color: #561c24;
+}
+.system-flowchart .sub-unit__item:last-child {
+  margin-bottom: 0;
+}
+
+/* 리스크관리 프로세스 */
+.process-steps {
+  display: flex;
+  gap: 12px;
+}
+.process-steps__phase {
+  margin-bottom: 30px;
+}
+.process-steps__phase:last-child {
+  margin-bottom: 0;
+}
+.process-steps .phase {
+  flex: 1;
+}
+.process-steps .phase__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  background-color: #561c24;
+  color: #fff;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.process-steps .step {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  background-color: #f2f2f2;
+  border-radius: 12px;
+  padding: 20px;
+}
+.process-steps .step:not(:last-child) {
+  position: relative;
+  margin-bottom: 12px;
+}
+.process-steps .step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 64px;
+  height: 12px;
+  background: url("../../../frontAssets/mo/image/shape_rectangle_subtract_2.png") no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+}
+.process-steps .step__number {
+  display: block;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 4px;
+}
+.process-steps .step__title {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: #8a1f2d;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+.process-steps .step__description {
+  margin-top: auto;
+  font-size: 14px;
+  color: #000;
+  line-height: 1.4;
 }
 
 /* utility */
