@@ -125,6 +125,9 @@ body {
   margin: 0 auto;
   background: url("../../../frontAssets/pc/image/bg_top_management.png") no-repeat;
 }
+.page-header.esg {
+  background-image: url("../../../frontAssets/pc/image/bg_top_esg.png");
+}
 .page-title {
   position: absolute;
   top: 359px;
@@ -608,6 +611,211 @@ body {
   color: #808080;
 }
 
+.rnc-summary {
+  display: flex;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+.rnc-summary .title {
+  width: 384px;
+  line-height: 1.3;
+  font-size: 34px;
+}
+.rnc-summary .desc {
+  margin-left: 24px;
+  line-height: 1.6;
+  letter-spacing: -0.5px;
+  font-size: 24px;
+}
+.rnc-summary ~ .rnc-summary {
+  margin-top: 100px;
+}
+
+.council-scheme {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 56px;
+}
+.council-scheme__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 32px 24px;
+  border-radius: 20px;
+  background-color: #561c24;
+  color: #fff;
+}
+.council-scheme__item:not(:first-child) {
+  margin-top: 24px;
+}
+.council-scheme__item.w-half {
+  width: calc((100% - 24px) / 2);
+}
+.council-scheme__item.w-half + .council-scheme__item.w-half {
+  margin-left: 24px;
+}
+.council-scheme__item .title {
+  line-height: 1.3;
+  font-size: 28px;
+  font-weight: 700;
+}
+.council-scheme__item .desc {
+  line-height: 1.3;
+  font-size: 16px;
+  font-weight: 700;
+}
+.council-scheme__list {
+  width: 100%;
+  margin-top: 32px;
+  overflow: hidden;
+}
+.council-scheme__list .council-scheme__item {
+  float: left;
+  background-color: #fff;
+  margin-top: 0;
+  padding: 24px 32px;
+  color: #1a1a1a;
+}
+.council-scheme__list .council-scheme__item .title {
+  width: 100%;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f2f2f2;
+  text-align: center;
+  color: #561c24;
+}
+.council-scheme__list .council-scheme__item .list {
+  margin-top: 24px;
+}
+.council-scheme__list .council-scheme__item .list li {
+  display: flex;
+  margin-top: 8px;
+  line-height: 1.6;
+  font-weight: 700;
+}
+.council-scheme__list .council-scheme__item .list li::before {
+  content: "";
+  flex-shrink: 0;
+  display: block;
+  width: 4px;
+  height: 4px;
+  margin-top: 12px;
+  border-radius: 2px;
+  background-color: #1a1a1a;
+  margin-right: 8px;
+}
+.council-scheme__list .council-scheme__item:nth-child(2) {
+  position: relative;
+}
+.council-scheme__list .council-scheme__item:nth-child(2)::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -50px;
+  width: 24px;
+  height: 100px;
+  background: url("../../../frontAssets/pc/image/shape_link_24x100.png") no-repeat 0 0/cover;
+}
+.council-scheme > .council-scheme__item.w-half {
+  position: relative;
+}
+.council-scheme > .council-scheme__item.w-half::before, .council-scheme > .council-scheme__item.w-half::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 120px;
+  height: 24px;
+  background: url("../../../frontAssets/pc/image/shape_link_120x24.png") no-repeat 0 0/cover;
+}
+.council-scheme > .council-scheme__item.w-half::before {
+  bottom: 100%;
+}
+.council-scheme > .council-scheme__item.w-half::after {
+  top: 100%;
+}
+
+.process-scheme {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 56px;
+}
+.process-scheme__item {
+  width: calc((100% - 24px) / 2);
+}
+.process-scheme__item:nth-child(2) {
+  margin-left: 24px;
+}
+.process-scheme__item:nth-child(2) .list {
+  position: relative;
+}
+.process-scheme__item:nth-child(2) .list::before {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  margin-top: -40px;
+  display: block;
+  width: 24px;
+  height: 80px;
+  background: url("../../../frontAssets/pc/image/shape_link_24x80.png") no-repeat 0 0/cover;
+}
+.process-scheme__item > .title {
+  border-radius: 20px;
+  background-color: #561c24;
+  padding: 16px 20px;
+  text-align: center;
+  line-height: 1.3;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+}
+.process-scheme__item .list {
+  margin-top: 24px;
+  display: flex;
+}
+.process-scheme__item .list li {
+  display: flex;
+  flex-direction: column;
+  width: calc((100% - 24px) / 2);
+  min-height: 300px;
+  padding: 32px 40px 40px;
+  border-radius: 20px;
+  background-color: #f2f2f2;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+.process-scheme__item .list li:nth-child(2) {
+  position: relative;
+  margin-left: 24px;
+}
+.process-scheme__item .list li:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  margin-top: -80px;
+  display: block;
+  width: 24px;
+  height: 160px;
+  background: url("../../../frontAssets/pc/image/shape_link_24x160.png") no-repeat 0 0/cover;
+}
+.process-scheme__item .list li .step {
+  font-size: 16px;
+}
+.process-scheme__item .list li .title {
+  margin-top: 8px;
+  letter-spacing: -0.5px;
+  font-size: 24px;
+  color: #8a1f2d;
+}
+.process-scheme__item .list li .desc {
+  margin-top: auto;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -846,6 +1054,59 @@ body {
   width: 1px;
   height: 16px;
   background-color: #dddddd;
+}
+
+/* 접근성을 고려한 blind 클래스 */
+.blind {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 포커스 시에도 blind 유지 (필요한 경우에만 사용) */
+.blind-focus {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.blind-focus:focus {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
+}
+
+/* 스크린리더에서만 읽히고 키보드 포커스 시 표시되는 클래스 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
 }
 
 /*# sourceMappingURL=main.css.map */
