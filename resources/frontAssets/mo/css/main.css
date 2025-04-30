@@ -123,19 +123,47 @@ body {
   padding: 0 16px;
 }
 .page-header__content {
+  position: relative;
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
   height: 257px;
-  background: url("../../../frontAssets/mo/image/visual_img_sub.png") no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 16px;
+}
+.page-header__content::before, .page-header__content::after {
+  content: "";
+  position: absolute;
+  width: 48px;
+  top: 141px;
+  height: 48.6666px;
   background-size: 100% 100%;
   background-position: center;
+}
+.page-header__content::before {
+  left: 0;
+  background-image: url("../../../frontAssets/mo/image/main_visual_mask_left.png");
+}
+.page-header__content::after {
+  right: 0;
+  background-image: url("../../../frontAssets/mo/image/main_visual_mask_right.png");
 }
 .page-header__content.esg-1 {
   background-image: url("../../../frontAssets/mo/image/visual_img_esg_1.png");
 }
 .page-header__content.esg-2 {
   background-image: url("../../../frontAssets/mo/image/visual_img_esg_2.png");
+}
+.page-header__content.management {
+  background-image: url("../../../frontAssets/mo/image/visual_img_management.png");
+}
+.page-header__content.business {
+  background-image: url("../../../frontAssets/mo/image/main_visual_business.png");
+}
+.page-header__content.assets {
+  background-image: url("../../../frontAssets/mo/image/main_visual_assets.png");
 }
 .page-header .page-title {
   font-family: "YouandiNewKr", sans-serif;
@@ -767,15 +795,17 @@ footer {
   background-color: #b3b3b3;
 }
 
-.modal-filter {
-  position: fixed;
+.modal-dialog-bottom {
+  top: initial;
   bottom: 0;
+  left: 0;
   width: 100%;
   background: #fff;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
+  transform: translate(0, 0);
 }
-.modal-filter__header {
+.modal__header {
   display: flex;
   height: 64px;
   align-items: center;
@@ -783,42 +813,42 @@ footer {
   padding-left: 24px;
   padding-right: 16px;
 }
-.modal-filter__header .close {
+.modal-close {
   width: 32px;
   height: 32px;
   background: url("../../../frontAssets/mo/image/icon_close.png") no-repeat;
   background-size: contain;
   font-size: 0;
 }
-.modal-filter__header-title {
+.modal__header-title {
   font-size: 20px;
   line-height: 1.3;
   font-weight: 700;
   color: #1a1a1a;
 }
-.modal-filter__content {
+.modal__content {
   padding: 0 24px 40px;
 }
-.modal-filter .button-wrap {
+.modal .button-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   margin-top: 40px;
 }
-.modal-filter .button-wrap button {
+.modal .button-wrap button {
   height: 48px;
   border-radius: 8px;
   font-size: 16px;
   line-height: 1.6;
   font-weight: 700;
 }
-.modal-filter .button-wrap .button-reset {
+.modal .button-wrap .button-reset {
   flex: 1;
   background-color: #ebebeb;
   color: #1a1a1a;
 }
-.modal-filter .button-wrap .button-apply {
+.modal .button-wrap .button-apply {
   flex: 1.77;
   background-color: #561c24;
   color: #fff;
@@ -1196,6 +1226,113 @@ footer {
 
 .mt-\[20px\] {
   margin-top: 20px;
+}
+
+/* ==========================================================================
+   Portfolio - Business Section Styles
+   ========================================================================== */
+.business-card__content {
+  margin-bottom: 20px;
+}
+.business-card__category {
+  display: block;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #fc642d;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.business-card__title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+.business-card__description {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+.business-card__note {
+  display: block;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #808080;
+  margin-top: 8px;
+}
+.business-card__figure {
+  width: 100%;
+  height: 319px;
+  overflow: hidden;
+  border-radius: 12px;
+  font-size: 0;
+  margin-bottom: 48px;
+}
+.business-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+     Portfolio - Assets Section Styles
+     ========================================================================== */
+.asset-card__figure {
+  flex-shrink: 0;
+  width: 100%;
+  height: 213px;
+  font-size: 0;
+  margin-bottom: 48px;
+}
+.asset-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.modal .asset-card__figure {
+  height: 218px;
+  margin-bottom: 12px;
+}
+.asset-card__name {
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 700;
+  color: #8a1f2d;
+  margin-bottom: 6px;
+  background: url("../../../frontAssets/mo/image/icon_arrow_right.png") no-repeat;
+  background-size: 20px 20px;
+  background-position: 100% 50%;
+}
+.asset-card__address {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+}
+.asset-card__info-item {
+  display: flex;
+  margin-bottom: 8px;
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: -0.5px;
+}
+.asset-card__info-item dt {
+  width: 105px;
+  margin-right: 32px;
+  font-weight: 700;
+}
+.asset-card__info-item dd {
+  font-weight: 500;
+}
+.modal .asset-card__info-item {
+  height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0;
+  border-bottom: 1px solid #f2f2f2;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -141,13 +141,36 @@ body {
   padding: 0 16px;
 
   &__content {
+    position: relative;
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
     height: 257px;
-    background: url('../../../frontAssets/mo/image/visual_img_sub.png') no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 16px;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 48px;
+      top: 141px;
+      height: 48.6666px;
+      background-size: 100% 100%;
+      background-position: center;
+    }
+
+    &::before {
+      left: 0;
+      background-image: url('../../../frontAssets/mo/image/main_visual_mask_left.png');
+    }
+
+    &::after {
+      right: 0;
+      background-image: url('../../../frontAssets/mo/image/main_visual_mask_right.png');
+    }
 
     &.esg-1 {
       background-image: url('../../../frontAssets/mo/image/visual_img_esg_1.png');
@@ -155,6 +178,18 @@ body {
 
     &.esg-2 {
       background-image: url('../../../frontAssets/mo/image/visual_img_esg_2.png');
+    }
+
+    &.management {
+      background-image: url('../../../frontAssets/mo/image/visual_img_management.png');
+    }
+
+    &.business {
+      background-image: url('../../../frontAssets/mo/image/main_visual_business.png');
+    }
+
+    &.assets {
+      background-image: url('../../../frontAssets/mo/image/main_visual_assets.png');
     }
   }
 
@@ -860,13 +895,17 @@ footer {
   }
 }
 
-.modal-filter {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: #fff;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
+.modal {
+  &-dialog-bottom {
+    top: initial;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    transform: translate(0, 0);
+  }
 
   &__header {
     display: flex;
@@ -875,14 +914,14 @@ footer {
     justify-content: space-between;
     padding-left: 24px;
     padding-right: 16px;
+  }
 
-    .close {
-      width: 32px;
-      height: 32px;
-      background: url('../../../frontAssets/mo/image/icon_close.png') no-repeat;
-      background-size: contain;
-      font-size: 0;
-    }
+  &-close {
+    width: 32px;
+    height: 32px;
+    background: url('../../../frontAssets/mo/image/icon_close.png') no-repeat;
+    background-size: contain;
+    font-size: 0;
   }
 
   &__header-title {
@@ -1348,4 +1387,132 @@ footer {
 
 .mt-\[20px\] {
   margin-top: 20px;
+}
+
+/* ==========================================================================
+   Portfolio - Business Section Styles
+   ========================================================================== */
+.business-card {
+  &__content {
+    margin-bottom: 20px;
+  }
+
+  &__category {
+    display: block;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #fc642d; // 카테고리 텍스트 색상
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  &__title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  &__note {
+    display: block;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #808080;
+    margin-top: 8px;
+  }
+
+  &__figure {
+    width: 100%;
+    height: 319px; // 이미지 높이 고정
+    overflow: hidden;
+    border-radius: 12px;
+    font-size: 0; // figure와 img 사이 여백 제거
+    margin-bottom: 48px;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // 이미지 비율 유지하며 채우기
+  }
+}
+
+/* ==========================================================================
+     Portfolio - Assets Section Styles
+     ========================================================================== */
+
+.asset-card {
+  &__figure {
+    flex-shrink: 0; // 이미지가 줄어들지 않도록
+    width: 100%; // 이미지 영역 너비 고정
+    height: 213px; // 이미지 영역 높이 고정
+    font-size: 0; // figure와 img 사이 여백 제거
+    margin-bottom: 48px;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // 이미지 비율 유지하며 채우기
+    border-radius: 12px; // 왼쪽 모서리만 둥글게
+  }
+
+  .modal &__figure {
+    height: 218px;
+    margin-bottom: 12px;
+  }
+
+  &__name {
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 700;
+    color: #8a1f2d; // 자산 이름 색상
+    margin-bottom: 6px;
+
+    background: url('../../../frontAssets/mo/image/icon_arrow_right.png') no-repeat;
+    background-size: 20px 20px;
+    background-position: 100% 50%;
+  }
+
+  &__address {
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+  }
+
+  &__info-item {
+    display: flex;
+    margin-bottom: 8px;
+    font-size: 16px;
+    line-height: 1.6;
+
+    letter-spacing: -0.5px;
+
+    dt {
+      width: 105px; // 라벨 너비 고정
+      margin-right: 32px;
+      font-weight: 700;
+    }
+
+    dd {
+      font-weight: 500;
+    }
+  }
+
+  .modal &__info-item {
+    height: 48px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0;
+    border-bottom: 1px solid #f2f2f2;
+  }
 }

@@ -45,7 +45,7 @@
 
     <main class="sub-page news-list">
       <div class="page-header">
-        <div class="page-header__content">
+        <div class="page-header__content management">
           <h2 class="page-title">경영정보</h2>
         </div>
       </div>
@@ -78,7 +78,7 @@
             />
             <button type="button" class="search"><span class="blind">검색</span></button>
             <div class="divider"></div>
-            <button type="button" class="filter">
+            <button type="button" class="filter" data-modal-id="modal-filter">
               <span class="blind">검색조건 창 열기</span>
             </button>
           </div>
@@ -186,12 +186,12 @@
     <!-- 필터 모달 -->
     <div class="modal" id="modal-filter" style="display: none">
       <div class="modal__dim"></div>
-      <div class="modal-filter">
-        <div class="modal-filter__header">
-          <div class="modal-filter__header-title">필터 선택</div>
-          <button type="button" class="close"><span class="blind">닫기</span></button>
+      <div class="modal-dialog modal-dialog-bottom">
+        <div class="modal__header">
+          <div class="modal__header-title">필터 선택</div>
+          <button type="button" class="modal-close"><span class="blind">닫기</span></button>
         </div>
-        <div class="modal-filter__content">
+        <div class="modal__content">
           <div class="form-item">
             <h4 class="form-item__title">근무형태</h4>
             <div class="grid-wrap col-3 gap-4">
