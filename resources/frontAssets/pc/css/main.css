@@ -142,6 +142,10 @@ body {
   height: 456px;
   margin: 0 auto;
   background: url("../../../frontAssets/pc/image/bg_top_management.png") no-repeat 0% 0%;
+  border-radius: 24px;
+}
+.page-header.about {
+  background-image: url("../../../frontAssets/pc/image/bg_top_about.png");
 }
 .page-header.esg {
   background-image: url("../../../frontAssets/pc/image/bg_top_esg.png");
@@ -1377,6 +1381,212 @@ body {
 }
 .asset-card__info-item dd {
   font-weight: 500;
+}
+
+/* ==========================================================================
+   About - Company Section Styles
+   ========================================================================== */
+.company-introduction {
+  margin-top: 16px;
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 80px;
+  border-bottom: 3px solid #f2f2f2;
+}
+.company-introduction::before, .company-introduction::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  width: 288px;
+  height: 3px;
+  background-color: #f2f2f2;
+}
+.company-introduction::after {
+  left: -288px;
+}
+.company-introduction::before {
+  right: -288px;
+}
+.company-introduction__title {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #8a1f2d;
+  margin-bottom: 24px;
+}
+.company-introduction__description {
+  font-size: 24px;
+  line-height: 1.6;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.synergy-network {
+  padding-top: 100px;
+  width: 1200px;
+  margin: 0 auto;
+}
+.synergy-network__header {
+  display: flex;
+}
+.synergy-network__title {
+  width: 280px;
+  margin-right: 24px;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.synergy-network__description {
+  flex: 1;
+  font-size: 24px;
+  line-height: 1.6;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.synergy-network__diagram {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 60px;
+}
+.synergy-network__diagram .flex-row {
+  display: flex;
+  gap: 24px;
+  flex-direction: row;
+}
+.synergy-network__diagram .flex-left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.synergy-network__diagram .flex-left-column > div {
+  width: 282px;
+}
+.synergy-network__diagram .flex-right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.synergy-network__diagram .flex-right-column > div {
+  width: 282px;
+  height: 162px;
+}
+
+.diagram__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background-color: #f2f2f2;
+  height: 100px;
+  width: 100%;
+}
+.diagram__item--top::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -24px;
+  width: 200px;
+  height: 24px;
+  transform: translateX(-50%);
+  background: url("../../../frontAssets/pc/image/shape_200x24.png") no-repeat 0 0/cover;
+}
+.diagram__item--hmc::before, .diagram__item--heng::before, .diagram__item--hcs::before, .diagram__item--hcard::before, .diagram__item--hcomm::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -24px;
+  width: 60px;
+  height: 24px;
+  transform: translateX(-50%);
+  background: url("../../../frontAssets/pc/image/shape_60x24.png") no-repeat 0 0/cover;
+}
+.diagram__item--hmc::after, .diagram__item--heng::after, .diagram__item--hcs::after {
+  content: "";
+  position: absolute;
+  right: -24px;
+  top: 50%;
+  width: 24px;
+  height: 60px;
+  transform: translateY(-50%);
+  background: url("../../../frontAssets/pc/image/shape_24x60.png") no-repeat 0 0/cover;
+}
+.diagram__item--hcard::after, .diagram__item--hcomm::after {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 50%;
+  width: 24px;
+  height: 60px;
+  transform: translateY(-50%);
+  background: url("../../../frontAssets/pc/image/shape_24x60.png") no-repeat 0 0/cover;
+}
+.diagram__item--center {
+  height: 348px;
+  flex: 1;
+}
+
+.management-philosophy {
+  margin-top: 100px;
+}
+.management-philosophy__header {
+  display: flex;
+  margin-bottom: 56px;
+}
+.management-philosophy__title {
+  width: 280px;
+  margin-right: 24px;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.management-philosophy__description {
+  font-size: 24px;
+  line-height: 1.6;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.management-philosophy__pillars {
+  display: flex;
+  gap: 24px;
+}
+.management-philosophy__pillars .pillar-item {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 360px;
+  padding: 40px;
+  border-radius: 20px;
+  background-color: #561c24;
+}
+.management-philosophy__pillars .pillar-item__icon-wrapper {
+  width: 72px;
+  height: 72px;
+}
+.management-philosophy__pillars .pillar-item__icon-wrapper img {
+  width: 100%;
+}
+.management-philosophy__pillars .pillar-item__name {
+  margin-top: auto;
+  font-size: 28px;
+  font-family: "YouandiNewKr", sans-serif;
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.management-philosophy__pillars .pillar-item__description {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 500;
+  color: #fff;
 }
 
 /*# sourceMappingURL=main.css.map */
