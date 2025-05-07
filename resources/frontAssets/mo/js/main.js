@@ -238,6 +238,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // 검색 키워드 관리 초기화
+  initSearchKeyword();
+
   // 범용 모달 닫기 리스너 초기화
   initGlobalCloseListeners();
 
@@ -261,3 +264,36 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+// 검색 키워드 관리
+const initSearchKeyword = () => {
+  // 모든 검색 관련 입력창 선택 (여러 페이지에서 사용 가능하도록)
+  const searchInputs = document.querySelectorAll('.search-box-careers__input, .search-input');
+
+  searchInputs.forEach(input => {
+    const resetButton =
+      input.closest('.input-keyword')?.querySelector('.search-clear') ||
+      input.closest('.search-form')?.querySelector('.search-clear');
+
+    if (!resetButton) return;
+
+    // 초기 상태 설정
+    resetButton.style.display = 'none';
+
+    // 입력 이벤트
+    input.addEventListener('input', function () {
+      resetButton.style.display = this.value ? 'block' : 'none';
+    });
+
+    // 리셋 버튼 클릭 이벤트
+    resetButton.addEventListener('click', function () {
+      input.value = '';
+      this.style.display = 'none';
+    });
+
+    // 페이지 로드 시 입력값이 있는 경우 리셋 버튼 표시
+    if (input.value) {
+      resetButton.style.display = 'block';
+    }
+  });
+};
