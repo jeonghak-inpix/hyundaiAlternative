@@ -465,7 +465,7 @@ body {
   &-date {
     margin-left: auto;
     color: #808080;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 700;
     line-height: 1.6;
   }
@@ -801,7 +801,7 @@ body {
     justify-content: center;
     width: 100%;
     padding: 32px 24px;
-    border-radius: 20px;
+    border-radius: 16px;
     background-color: #561c24;
     color: #fff;
 
@@ -839,7 +839,7 @@ body {
       float: left;
       background-color: #fff;
       margin-top: 0;
-      padding: 24px 32px;
+      padding: 24px 32px 32px 32px;
       color: #1a1a1a;
 
       .title {
@@ -847,7 +847,7 @@ body {
         padding-bottom: 16px;
         border-bottom: 2px solid #f2f2f2;
         text-align: center;
-        color: #561c24;
+        color: #8a1f2d;
       }
 
       .list {
@@ -855,9 +855,12 @@ body {
 
         li {
           display: flex;
-          margin-top: 8px;
           line-height: 1.6;
           font-weight: 700;
+
+          &:not(:first-child) {
+            margin-top: 8px;
+          }
 
           &::before {
             content: '';
@@ -1021,7 +1024,7 @@ body {
     font-size: 20px;
     line-height: 1.3;
     font-weight: 700;
-    border-radius: 12px;
+    border-radius: 16px;
     margin: 0 auto;
   }
 }
@@ -1388,8 +1391,6 @@ body {
   }
 
   &__list {
-    list-style: none; // Remove default bullets
-    padding-left: 8px; // Indent for custom bullet
     font-size: 20px;
     line-height: 1.6;
     font-weight: 700;
@@ -1399,14 +1400,6 @@ body {
     position: relative;
     margin-bottom: 4px; // Space between list items
 
-    &::before {
-      content: '·'; // Custom bullet
-      position: absolute;
-      left: -8px;
-      top: 0;
-      font-weight: 700;
-    }
-
     &:last-child {
       margin-bottom: 0;
     }
@@ -1414,6 +1407,7 @@ body {
 }
 
 .esg-pillar__image-wrapper {
+  position: relative;
   width: 378px;
   height: 504px;
   border-radius: 16px;
@@ -1431,13 +1425,43 @@ body {
   &.governance {
     background-image: url('../../../frontAssets/pc/image/background_esg_2_3.jpeg');
   }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 16px;
+  }
 }
 
 .esg-divider {
+  position: relative;
   width: 100%;
   height: 3px;
-  margin: 80px 0;
+  margin: 80px 0 100px;
   background-color: #f2f2f2;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 288px;
+    height: 3px;
+    background-color: #f2f2f2;
+  }
+
+  &::after {
+    left: -288px;
+  }
+
+  &::before {
+    right: -288px;
+  }
 }
 
 /* ==========================================================================
@@ -1538,7 +1562,7 @@ body {
   &__list {
     display: grid; // 그리드 레이아웃 사용
     grid-template-columns: repeat(1, 1fr); // 기본 1열
-    gap: 40px; // 아이템 사이 간격
+    gap: 32px; // 아이템 사이 간격
   }
 }
 
@@ -1547,10 +1571,23 @@ body {
   gap: 24px;
 
   &__figure {
+    position: relative;
     flex-shrink: 0; // 이미지가 줄어들지 않도록
     width: 384px; // 이미지 영역 너비 고정
     height: 384px; // 이미지 영역 높이 고정
     font-size: 0; // figure와 img 사이 여백 제거
+
+    // 임시
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 16px;
+    }
   }
 
   &__image {
@@ -1561,10 +1598,22 @@ body {
   }
 
   &__details {
+    position: relative;
     flex: 1; // 남은 공간 모두 차지
     padding: 40px 48px; // 내부 여백
     background-color: #f2f2f2;
     border-radius: 20px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -24px;
+      width: 24px;
+      height: 160px;
+      background: url('../../../frontAssets/pc/image/shape_24x160.png') no-repeat 0 0 / cover;
+      transform: translateY(-50%);
+    }
   }
 
   &__name {
@@ -1586,8 +1635,8 @@ body {
   &__info-item {
     display: flex;
     margin-bottom: 8px;
-    font-size: 16px;
-
+    font-size: 20px;
+    line-height: 1.6;
     letter-spacing: -0.5px;
 
     dt {
