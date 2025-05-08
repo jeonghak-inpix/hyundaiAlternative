@@ -277,7 +277,7 @@ body {
       content: '';
       width: 1px;
       height: 18px;
-      background-color: #999999;
+      background-color: #ebebeb;
       margin-left: 20px;
       margin-right: 20px;
     }
@@ -474,9 +474,7 @@ body {
     padding-top: 40px;
 
     &__header {
-      height: 74px;
-      padding-left: 24px;
-      padding-right: 24px;
+      padding: 24px;
       display: flex;
       align-items: center;
       border-bottom: 2px solid #f2f2f2;
@@ -610,7 +608,7 @@ body {
       font-size: 20px;
       line-height: 1.3;
       font-weight: 700;
-      border-radius: 12px;
+      border-radius: 16px;
     }
   }
 }
@@ -643,8 +641,7 @@ body {
   }
 
   &__date {
-    height: 22px;
-    font-size: 16px;
+    font-size: 20px;
     color: #808080;
     font-weight: 700;
     line-height: 1.6;
@@ -661,20 +658,28 @@ body {
 
   &__tags {
     margin-left: auto;
+    font-size: 0;
 
     .tag {
-      width: 80px;
-      height: 26px;
       display: inline-block;
-      font-size: 16px;
+      font-size: 20px;
       line-height: 1.6;
       font-weight: 700;
       color: #808080;
       text-align: center;
 
-      & + .tag {
-        margin-left: 44px;
+      &:nth-child(1) {
+        width: 55px;
       }
+
+      &:nth-child(2) {
+        width: 99px;
+        margin-left: 48px;
+      }
+    }
+
+    .divider {
+      margin: 0 16px;
     }
   }
 }
@@ -691,7 +696,7 @@ body {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 20px 24px;
+      padding: 14px 22px;
       border: 2px solid #f2f2f2;
       border-radius: 16px;
     }
@@ -706,21 +711,20 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 71px;
-  height: 31px;
-
-  border-radius: 3px;
+  width: 72px;
+  height: 32px;
+  border-radius: 8px;
   font-weight: 700;
   font-size: 16px;
-  line-height: 1.4;
   margin-right: 24px;
+
   &.active {
     background-color: #fc642d;
     color: #ffffff;
   }
 
   &.upcoming {
-    background-color: #000000;
+    background-color: #1a1a1a;
     color: #ffffff;
   }
 
