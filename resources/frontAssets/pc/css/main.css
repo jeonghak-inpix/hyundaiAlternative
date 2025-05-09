@@ -98,7 +98,8 @@ body {
 .header__container {
   display: flex;
   align-items: center;
-  width: 1776px;
+  max-width: 1776px;
+  min-width: 1200px;
   height: 72px;
   margin: 0 auto;
 }
@@ -136,26 +137,85 @@ body {
 }
 
 .page-header {
+  position: relative;
   display: flex;
   align-items: flex-end;
-  width: 1776px;
+  max-width: 1776px;
+  min-width: 1200px;
   height: 456px;
   margin: 0 auto;
-  background: url("../../../frontAssets/pc/image/bg_top_management.png") no-repeat 0% 0%;
+  background: url("../../../frontAssets/pc/image/main_visual_management.png") no-repeat 50% 50%;
   border-radius: 24px;
 }
+.page-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: url("../../../frontAssets/pc/image/main_mask_management.png") no-repeat 100% 50%;
+}
+.page-header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 40px;
+  background: url("../../../frontAssets/pc/image/main_mask_management.png") no-repeat 0 50%;
+}
 .page-header.about {
-  background-image: url("../../../frontAssets/pc/image/bg_top_about.png");
+  background-image: url("../../../frontAssets/pc/image/main_visual_about.png");
+}
+.page-header.about::before {
+  background: url("../../../frontAssets/pc/image/main_mask_about.png") no-repeat 100% 50%;
+}
+.page-header.assets {
+  background-image: url("../../../frontAssets/pc/image/main_visual_assets.png");
+}
+.page-header.assets::before {
+  background: url("../../../frontAssets/pc/image/main_mask_portfolio.png") no-repeat 100% 50%;
+}
+.page-header.business {
+  background-image: url("../../../frontAssets/pc/image/main_visual_business.png");
+}
+.page-header.business::before {
+  background: url("../../../frontAssets/pc/image/main_mask_portfolio.png") no-repeat 100% 50%;
 }
 .page-header.esg {
-  background-image: url("../../../frontAssets/pc/image/bg_top_esg.png");
+  background-image: url("../../../frontAssets/pc/image/main_visual_esg.png");
+}
+.page-header.esg::before {
+  background: url("../../../frontAssets/pc/image/main_mask_esg.png") no-repeat 100% 50%;
 }
 .page-header.esg-2 {
-  background-image: url("../../../frontAssets/pc/image/main_visual_esg_2.png");
+  background-image: url("../../../frontAssets/pc/image/main_visual_esg2.png");
+}
+.page-header.esg-2::before {
+  background: url("../../../frontAssets/pc/image/main_mask_esg.png") no-repeat 100% 50%;
 }
 .page-header__content {
   width: 1200px;
   margin: 0 auto;
+}
+.page-header__content::before {
+  content: "";
+  position: absolute;
+  top: 284px;
+  left: 0;
+  width: 100%;
+  height: 74px;
+  background: url("../../../frontAssets/pc/image/main_shape_left.png") no-repeat;
+}
+.page-header__content::after {
+  content: "";
+  position: absolute;
+  top: 284px;
+  right: 0;
+  width: 198px;
+  height: 74px;
+  background: url("../../../frontAssets/pc/image/main_shape_right.png") no-repeat;
 }
 .page-title {
   font-size: 56px;
@@ -1265,10 +1325,6 @@ body {
 /* ==========================================================================
    Portfolio - Business Section Styles
    ========================================================================== */
-.page-header.business {
-  background-image: url("../../../frontAssets/pc/image/main_visual_business.png");
-}
-
 .business-section {
   padding-top: 16px;
 }
