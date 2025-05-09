@@ -669,7 +669,7 @@ body {
       text-align: center;
 
       &:nth-child(1) {
-        width: 55px;
+        min-width: 55px;
       }
 
       &:nth-child(2) {
@@ -1852,6 +1852,7 @@ body {
   gap: 24px;
 
   .pillar-item {
+    position: relative;
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -1861,6 +1862,36 @@ body {
     padding: 40px;
     border-radius: 20px;
     background-color: #561c24;
+
+    &:not(:last-child)::before {
+      content: '';
+      position: absolute;
+    }
+
+    &:nth-child(1)::before {
+      top: 50%;
+      right: -24px;
+      width: 24px;
+      height: 200px;
+      transform: translateY(-50%);
+      background: url('../../../frontAssets/pc/image/shape_24x200_maroon.png') no-repeat 0 0 / cover;
+    }
+
+    &:nth-child(2)::before {
+      bottom: 80px;
+      right: -24px;
+      width: 24px;
+      height: 80px;
+      background: url('../../../frontAssets/pc/image/shape_24x80_maroon.png') no-repeat 0 0 / cover;
+    }
+
+    &:nth-child(3)::before {
+      top: 80px;
+      right: -24px;
+      width: 24px;
+      height: 80px;
+      background: url('../../../frontAssets/pc/image/shape_24x80_maroon.png') no-repeat 0 0 / cover;
+    }
   }
 
   .pillar-item__icon-wrapper {

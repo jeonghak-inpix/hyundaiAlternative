@@ -572,7 +572,7 @@ body {
   text-align: center;
 }
 .careers-list__tags .tag:nth-child(1) {
-  width: 55px;
+  min-width: 55px;
 }
 .careers-list__tags .tag:nth-child(2) {
   width: 99px;
@@ -1599,6 +1599,7 @@ body {
   gap: 24px;
 }
 .management-philosophy__pillars .pillar-item {
+  position: relative;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -1608,6 +1609,32 @@ body {
   padding: 40px;
   border-radius: 20px;
   background-color: #561c24;
+}
+.management-philosophy__pillars .pillar-item:not(:last-child)::before {
+  content: "";
+  position: absolute;
+}
+.management-philosophy__pillars .pillar-item:nth-child(1)::before {
+  top: 50%;
+  right: -24px;
+  width: 24px;
+  height: 200px;
+  transform: translateY(-50%);
+  background: url("../../../frontAssets/pc/image/shape_24x200_maroon.png") no-repeat 0 0/cover;
+}
+.management-philosophy__pillars .pillar-item:nth-child(2)::before {
+  bottom: 80px;
+  right: -24px;
+  width: 24px;
+  height: 80px;
+  background: url("../../../frontAssets/pc/image/shape_24x80_maroon.png") no-repeat 0 0/cover;
+}
+.management-philosophy__pillars .pillar-item:nth-child(3)::before {
+  top: 80px;
+  right: -24px;
+  width: 24px;
+  height: 80px;
+  background: url("../../../frontAssets/pc/image/shape_24x80_maroon.png") no-repeat 0 0/cover;
 }
 .management-philosophy__pillars .pillar-item__icon-wrapper {
   width: 72px;
