@@ -966,9 +966,9 @@ body {
 .button-top-wrapper {
   position: fixed;
   bottom: 236px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1920px;
+  right: 32px;
+  max-width: 1920px;
+  min-width: 1200px;
   z-index: 100;
   pointer-events: none;
   opacity: 0;
@@ -1714,6 +1714,188 @@ body {
   line-height: 1.6;
   font-weight: 500;
   color: #fff;
+}
+
+/* ==========================================================================
+   About - Organization Section Styles
+   ========================================================================== */
+.organization-chart {
+  margin-top: 16px;
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 80px;
+  border-bottom: 3px solid #f2f2f2;
+}
+.organization-chart::before, .organization-chart::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  width: 288px;
+  height: 3px;
+  background-color: #f2f2f2;
+}
+.organization-chart::after {
+  left: -288px;
+}
+.organization-chart::before {
+  right: -288px;
+}
+
+.key-personnel {
+  margin-top: 100px;
+}
+.key-personnel__title {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 40px;
+}
+.key-personnel__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.key-personnel .person-card {
+  position: relative;
+  width: calc(50% - 12px);
+  height: 753px;
+  border-radius: 20px;
+  background-color: #f2f2f2;
+  padding: 48px 0 0 40px;
+  overflow: hidden;
+}
+.key-personnel .person-card__figure {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  height: 375px;
+}
+.key-personnel .person-card__name {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.key-personnel .person-card__position {
+  font-size: 20px;
+  line-height: 1.6;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+.key-personnel .person-card__details {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 48px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+.key-personnel .person-card__details dt {
+  color: #8a1f2d;
+  font-weight: 700;
+}
+.key-personnel .person-card__details .label {
+  width: 96px;
+  margin-bottom: 4px;
+}
+.key-personnel .person-card__details .desc {
+  width: calc(100% - 96px);
+  font-weight: 700;
+}
+.key-personnel .person-card__details .full {
+  width: 100%;
+}
+.key-personnel .person-card__details dt.full {
+  margin-top: 20px;
+}
+.key-personnel .person-card__details .career-list {
+  margin-top: 8px;
+}
+.key-personnel .person-card__details .career-list li {
+  position: relative;
+  padding-left: 12px;
+  letter-spacing: -0.5px;
+  margin-bottom: 4px;
+}
+.key-personnel .person-card__details .career-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #1a1a1a;
+}
+.key-personnel .no-data {
+  margin-top: 160px;
+  text-align: center;
+}
+.key-personnel .no-data__title {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.key-personnel .no-data__desc {
+  margin-top: 16px;
+  font-size: 20px;
+  line-height: 1.6;
+  letter-spacing: -0.5px;
+}
+
+/* location */
+.location-section {
+  margin-top: 16px;
+}
+.location-section__header {
+  display: flex;
+  margin-bottom: 56px;
+}
+.location-section__title {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #8a1f2d;
+  width: 284px;
+}
+.location-section__address {
+  font-size: 24px;
+  line-height: 1.6;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+.location-section__bottom {
+  display: flex;
+  margin-top: 56px;
+}
+.location-section__info {
+  width: 690px;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 24px;
+  line-height: 1.6;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+.location-section__info dt {
+  width: 102px;
+}
+.location-section__info dd {
+  width: calc(100% - 102px);
+}
+.location-section .button-wrapper {
+  display: flex;
+  gap: 24px;
+  flex: 1;
+}
+.location-section .button {
+  flex: 1;
+  height: 64px;
+  background-color: #f2f2f2;
+  border-radius: 16px;
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 700;
 }
 
 /*# sourceMappingURL=main.css.map */

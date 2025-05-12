@@ -1134,9 +1134,10 @@ body {
 .button-top-wrapper {
   position: fixed;
   bottom: 236px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1920px;
+  right: 32px;
+  // transform: translateX(-50%);
+  max-width: 1920px;
+  min-width: 1200px;
   z-index: 100;
   pointer-events: none;
   opacity: 0;
@@ -1984,5 +1985,220 @@ body {
     line-height: 1.6;
     font-weight: 500;
     color: #fff;
+  }
+}
+
+/* ==========================================================================
+   About - Organization Section Styles
+   ========================================================================== */
+
+.organization-chart {
+  margin-top: 16px;
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 80px;
+  border-bottom: 3px solid #f2f2f2;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    width: 288px;
+    height: 3px;
+    background-color: #f2f2f2;
+  }
+
+  &::after {
+    left: -288px;
+  }
+
+  &::before {
+    right: -288px;
+  }
+}
+
+.key-personnel {
+  margin-top: 100px;
+
+  &__title {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 40px;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .person-card {
+    position: relative;
+    width: calc(50% - 12px);
+    height: 753px;
+    border-radius: 20px;
+    background-color: #f2f2f2;
+    padding: 48px 0 0 40px;
+    overflow: hidden;
+
+    &__figure {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 300px;
+      height: 375px;
+    }
+
+    &__name {
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    &__position {
+      font-size: 20px;
+      line-height: 1.6;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    &__details {
+      display: flex;
+      flex-wrap: wrap;
+      // flex-direction: column;
+      margin-top: 48px;
+      font-size: 16px;
+      line-height: 1.6;
+
+      dt {
+        color: #8a1f2d;
+        font-weight: 700;
+      }
+
+      .label {
+        width: 96px;
+        margin-bottom: 4px;
+      }
+
+      .desc {
+        width: calc(100% - 96px);
+        font-weight: 700;
+      }
+
+      .full {
+        width: 100%;
+      }
+
+      dt.full {
+        margin-top: 20px;
+      }
+
+      .career-list {
+        margin-top: 8px;
+
+        li {
+          position: relative;
+          padding-left: 12px;
+          letter-spacing: -0.5px;
+          margin-bottom: 4px;
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: #1a1a1a;
+          }
+        }
+      }
+    }
+  }
+
+  .no-data {
+    margin-top: 160px;
+    text-align: center;
+
+    &__title {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    &__desc {
+      margin-top: 16px;
+      font-size: 20px;
+      line-height: 1.6;
+      letter-spacing: -0.5px;
+    }
+  }
+}
+
+/* location */
+.location-section {
+  margin-top: 16px;
+
+  &__header {
+    display: flex;
+    margin-bottom: 56px;
+  }
+
+  &__title {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #8a1f2d;
+    width: 284px;
+  }
+
+  &__address {
+    font-size: 24px;
+    line-height: 1.6;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  &__bottom {
+    display: flex;
+    margin-top: 56px;
+  }
+
+  &__info {
+    width: 690px;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 24px;
+    line-height: 1.6;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+
+    dt {
+      width: 102px;
+    }
+
+    dd {
+      width: calc(100% - 102px);
+    }
+  }
+
+  .button-wrapper {
+    display: flex;
+    gap: 24px;
+    flex: 1;
+  }
+
+  .button {
+    flex: 1;
+    height: 64px;
+    background-color: #f2f2f2;
+    border-radius: 16px;
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 700;
   }
 }
