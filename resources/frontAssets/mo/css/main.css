@@ -86,14 +86,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.scrolled .header__container {
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.0784313725);
+}
+
 .header__container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 56px;
-  position: relative;
   padding-left: 28px;
   padding-right: 20px;
+  background-color: #fff;
 }
 .header__logo {
   width: 142px;
@@ -116,6 +125,10 @@ body {
 }
 .header .header__nav {
   display: none;
+}
+
+.sub-page {
+  padding-top: 56px;
 }
 
 .page-header {
@@ -836,14 +849,22 @@ footer {
   transform: translate(0, 0);
 }
 .modal__header {
+  position: relative;
   display: flex;
-  height: 64px;
+  padding: 19px 19px;
   align-items: center;
   justify-content: space-between;
   padding-left: 24px;
-  padding-right: 16px;
+  padding-right: 64px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
 }
 .modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
   width: 32px;
   height: 32px;
   background: url("../../../frontAssets/mo/image/icon_close.png") no-repeat;
@@ -1331,9 +1352,13 @@ footer {
   font-weight: 700;
   color: #8a1f2d;
   margin-bottom: 6px;
+  padding-right: 28px;
   background: url("../../../frontAssets/mo/image/icon_arrow_right.png") no-repeat;
   background-size: 20px 20px;
   background-position: 100% 50%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .asset-card__address {
   font-size: 16px;
@@ -1341,6 +1366,9 @@ footer {
   font-weight: 700;
   letter-spacing: -0.5px;
   margin-bottom: 12px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .asset-card__info-item {
   display: flex;
@@ -1407,6 +1435,7 @@ footer {
   margin-top: 24px;
 }
 .synergy-network__diagram .diagram__item {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1442,6 +1471,35 @@ footer {
 }
 .synergy-network__diagram .diagram__item--hcs img {
   margin-top: -11px;
+}
+.synergy-network__diagram .diagram__item--hcard::before, .synergy-network__diagram .diagram__item--hcard::after, .synergy-network__diagram .diagram__item--hcomm::before, .synergy-network__diagram .diagram__item--hcomm::after {
+  content: "";
+  position: absolute;
+  width: 64px;
+  height: 12px;
+  background: url("../../../frontAssets/mo/image/shape_64x12_gray.png") no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.synergy-network__diagram .diagram__item--hcard::before, .synergy-network__diagram .diagram__item--hcomm::before {
+  top: -12px;
+}
+.synergy-network__diagram .diagram__item--hcard::after, .synergy-network__diagram .diagram__item--hcomm::after {
+  bottom: -12px;
+}
+.synergy-network__diagram .diagram__item--hmc::before, .synergy-network__diagram .diagram__item--heng::before, .synergy-network__diagram .diagram__item--hcs::before {
+  content: "";
+  position: absolute;
+  width: 64px;
+  height: 12px;
+  background: url("../../../frontAssets/mo/image/shape_64x12_gray.png") no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  left: 50%;
+  top: -12px;
+  transform: translateX(-50%);
 }
 
 .management-philosophy__title {
@@ -1543,6 +1601,7 @@ footer {
   align-items: center;
   border-radius: 12px;
   font-weight: 700;
+  text-align: center;
 }
 .organization-chart__list > li:first-child {
   width: 100%;
@@ -1823,7 +1882,7 @@ footer {
   flex-wrap: wrap;
 }
 .location-section dt {
-  width: 92px;
+  width: 64px;
   margin-bottom: 8px;
 }
 .location-section dd {

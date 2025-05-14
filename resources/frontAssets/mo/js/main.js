@@ -263,6 +263,20 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
   });
+
+  // 스크롤 이벤트 처리
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 0) {
+      document.body.classList.add('scrolled');
+    } else {
+      document.body.classList.remove('scrolled');
+    }
+  });
+
+  // 초기 스크롤 위치 체크
+  if (window.scrollY > 0) {
+    document.body.classList.add('scrolled');
+  }
 });
 
 // 검색 키워드 관리
