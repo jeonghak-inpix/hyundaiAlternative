@@ -128,7 +128,7 @@ const initResetAll = () => {
 
       // 버튼과 타이틀 텍스트 초기화
       button.textContent = defaultText;
-      dropdownTitle.textContent = defaultText;
+      // dropdownTitle.textContent = defaultText;
     });
   });
 };
@@ -250,7 +250,7 @@ const initDropdowns = () => {
       // 버튼과 타이틀 텍스트 업데이트
       const displayText = isChecked ? '전체' : defaultText;
       button.textContent = displayText;
-      dropdownTitle.textContent = displayText;
+      // dropdownTitle.textContent = displayText;
     });
 
     // 다른 체크박스들 이벤트
@@ -279,7 +279,7 @@ const initDropdowns = () => {
             ? selectedItems.join(', ')
             : defaultText;
         button.textContent = displayText;
-        dropdownTitle.textContent = displayText;
+        // dropdownTitle.textContent = displayText;
       });
     });
 
