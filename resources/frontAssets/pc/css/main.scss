@@ -155,6 +155,17 @@ body {
         color: #8a1f2d;
       }
     }
+
+    &.active {
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 24px;
+        height: 24px;
+      }
+    }
   }
 }
 
@@ -557,6 +568,7 @@ body {
     &__header {
       padding: 24px;
       display: flex;
+      justify-content: space-between;
       align-items: center;
       border-bottom: 2px solid #f2f2f2;
     }
@@ -651,6 +663,7 @@ body {
       -webkit-box-orient: vertical;
       overflow: hidden;
       display: -webkit-box;
+      margin-right: 45px;
 
       span:first-child {
         color: #fc642d;
@@ -679,7 +692,6 @@ body {
       line-height: 1.6;
       font-weight: 700;
       color: #808080;
-      margin-left: 45px;
     }
 
     &__more-btn-wrapper {
