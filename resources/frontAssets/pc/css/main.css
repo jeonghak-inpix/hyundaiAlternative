@@ -103,6 +103,10 @@ body {
   height: 72px;
   margin: 0 auto;
 }
+.scrolled .header__container {
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.0784313725);
+}
+
 .header__logo {
   margin-left: 96px;
   font-size: 0;
@@ -115,20 +119,61 @@ body {
 .header__nav {
   margin-left: auto;
   margin-right: 84px;
+  position: relative;
+  background-color: #fff;
+  align-self: flex-start;
+}
+.header__nav .header__nav-bg {
+  height: 0;
+}
+.header__nav.active .header__nav-bg {
+  position: absolute;
+  left: 0;
+  top: 72px;
+  width: 100%;
+  height: 180px;
+  z-index: -1;
+  background-color: #fff;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.0784313725);
+  opacity: 1;
+  transition: height 0.2s ease-in;
+}
+.header__nav.active::before, .header__nav.active::after {
+  content: "";
+  position: absolute;
+  top: 72px;
+  width: 24px;
+  height: 24px;
+}
+.header__nav.active::before {
+  left: -24px;
+  background: url("../../../frontAssets/pc/image/shape_nav_left.png") no-repeat 0 0;
+}
+.header__nav.active::after {
+  right: -24px;
+  background: url("../../../frontAssets/pc/image/shape_nav_right.png") no-repeat 0 0;
+}
+.header__nav.active .nav__sub-list {
+  display: block;
 }
 .header .nav__list {
   display: flex;
   column-gap: 24px;
 }
 .header .nav__item {
-  height: 26px;
+  height: 72px;
   width: 180px;
   text-align: center;
 }
 .header .nav__item a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
   text-decoration: none;
   color: #1a1a1a;
-  font-family: "YouandiNewKr", sans-serif;
   font-size: 20px;
   line-height: 1.3;
   font-weight: 700;
@@ -136,12 +181,15 @@ body {
 .header .nav__item.active a {
   color: #8a1f2d;
 }
-.header .nav.active::before, .header .nav.active::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 24px;
-  height: 24px;
+.header .nav__sub-list {
+  display: none;
+  margin-top: 8px;
+}
+.header .nav__sub-item a {
+  font-size: 16px;
+  line-height: 1.3;
+  font-weight: 700;
+  margin-bottom: 12px;
 }
 
 .sub-page {

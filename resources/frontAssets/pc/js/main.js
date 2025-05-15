@@ -27,15 +27,38 @@ let HyundaiModal = {
 document.addEventListener('DOMContentLoaded', function () {
   const topButton = document.querySelector('.button-top-wrapper');
   const showOffset = 200; // 스크롤이 200px 이상 되었을 때 버튼 표시
+  const headerNav = document.querySelector('.header__nav');
+  const htmlElement = document.documentElement;
 
   // 스크롤 이벤트 처리
   window.addEventListener('scroll', function () {
+    // 스크롤 위치가 0보다 크면 'scrolled' 클래스 추가, 아니면 제거
+    if (window.pageYOffset > 0) {
+      htmlElement.classList.add('scrolled');
+    } else {
+      htmlElement.classList.remove('scrolled');
+    }
+
+    // top 버튼 표시/숨김 처리
     if (window.pageYOffset > showOffset) {
       topButton.classList.add('visible');
     } else {
       topButton.classList.remove('visible');
     }
   });
+
+  // header__nav 마우스 이벤트 처리
+  if (headerNav) {
+    headerNav.addEventListener('mouseenter', function () {
+      this.classList.add('active');
+    });
+
+    headerNav.addEventListener('mouseleave', function () {
+      setTimeout(() => {
+        this.classList.remove('active');
+      }, 300);
+    });
+  }
 
   // top 버튼 클릭 이벤트
   if (topButton) {
