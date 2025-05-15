@@ -140,8 +140,62 @@ body {
     background-position: center;
   }
 
+  @at-root .nav-open {
+    overflow: hidden;
+
+    .header {
+      .nav-toggle {
+        background: url('../../../frontAssets/mo/image/top_menu_close.png') no-repeat;
+        background-size: 100% 100%;
+        background-position: center;
+      }
+
+      .header__nav {
+        display: block;
+      }
+    }
+  }
+
   .header__nav {
     display: none;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 100;
+    padding: 12px 28px;
+  }
+
+  .nav__item {
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      height: 32px;
+      font-size: 14px;
+      line-height: 1.4;
+      font-weight: 700;
+      color: #8a1f2d;
+    }
+  }
+
+  .nav__sub-item {
+    a {
+      display: flex;
+      align-items: center;
+      height: 48px;
+      font-size: 20px;
+      line-height: 1.3;
+      font-weight: 700;
+      color: #1a1a1a;
+      text-decoration: none;
+      padding-left: 16px;
+    }
   }
 }
 
@@ -2309,5 +2363,67 @@ footer {
     font-size: 16px;
     line-height: 1.4;
     font-weight: 700;
+  }
+}
+
+/** main page */
+.main {
+  .page-header {
+    &__content {
+      height: calc(100vh - 88px);
+      background-image: url('../../../frontAssets/mo/image/visual_img_main.png');
+
+      &::before,
+      &::after {
+        top: 70.2%;
+      }
+    }
+  }
+
+  &-nav__list {
+    margin-top: 12px;
+  }
+
+  &-nav__item {
+    .main-nav__sub-list {
+      display: none;
+    }
+
+    &.active .main-nav__sub-list {
+      display: block;
+    }
+
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+
+    > a {
+      display: flex;
+      align-items: center;
+      height: 56px;
+      font-size: 24px;
+      line-height: 1.3;
+      font-weight: 700;
+      color: #8a1f2d;
+      text-decoration: none;
+      border-bottom: 2px solid #ebebeb;
+      background: url('../../../frontAssets/mo/image/arrow_nav.png') no-repeat right center;
+    }
+  }
+
+  &-nav__sub-list {
+    margin-top: 8px;
+
+    a {
+      display: flex;
+      align-items: center;
+      height: 48px;
+      font-size: 20px;
+      line-height: 1.3;
+      font-weight: 700;
+      color: #1a1a1a;
+      text-decoration: none;
+      padding-left: 16px;
+    }
   }
 }

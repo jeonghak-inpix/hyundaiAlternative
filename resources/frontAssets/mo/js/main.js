@@ -225,6 +225,16 @@ document.addEventListener('DOMContentLoaded', function () {
   // Top 버튼 초기화
   const topButton = document.querySelector('.button-top-wrapper');
   const showOffset = 200;
+  const navToggle = document.querySelector('.nav-toggle');
+  const htmlElement = document.documentElement;
+
+  // nav-toggle 버튼 클릭 이벤트 처리
+  if (navToggle) {
+    navToggle.addEventListener('click', function () {
+      htmlElement.classList.toggle('nav-open');
+    });
+  }
+
   if (topButton) {
     window.addEventListener('scroll', function () {
       if (window.pageYOffset > showOffset) {
@@ -277,6 +287,23 @@ document.addEventListener('DOMContentLoaded', function () {
   if (window.scrollY > 0) {
     document.body.classList.add('scrolled');
   }
+
+  const mainNavItems = document.querySelectorAll('.main-nav__item');
+
+  // 모바일 네비게이션 아이템 클릭 이벤트 처리
+  mainNavItems.forEach(item => {
+    item.addEventListener('click', function (e) {
+      e.preventDefault();
+      // 현재 클릭된 아이템에 active 클래스가 있는지 확인
+      if (this.classList.contains('active')) {
+        // active 클래스가 있으면 제거
+        this.classList.remove('active');
+      } else {
+        // active 클래스가 없으면 추가
+        this.classList.add('active');
+      }
+    });
+  });
 });
 
 // 검색 키워드 관리
