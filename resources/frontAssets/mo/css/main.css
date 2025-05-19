@@ -1423,6 +1423,7 @@ footer {
 .asset-card__info-item dd {
   font-weight: 500;
   flex: 1;
+  text-align: right;
 }
 .modal .asset-card__info-item {
   padding-top: 11px;
