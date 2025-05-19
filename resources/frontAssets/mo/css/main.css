@@ -834,6 +834,8 @@ footer {
   color: #1a1a1a;
   margin-bottom: 4px;
   text-decoration: none;
+}
+.careers-list__content .careers-list__title {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;

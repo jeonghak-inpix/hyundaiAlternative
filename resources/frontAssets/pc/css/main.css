@@ -1916,6 +1916,7 @@ body {
   margin-top: 20px;
 }
 .key-personnel .person-card__details .career-list {
+  width: 308px;
   margin-top: 8px;
 }
 .key-personnel .person-card__details .career-list li {
