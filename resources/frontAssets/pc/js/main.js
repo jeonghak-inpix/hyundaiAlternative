@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // top 버튼 표시/숨김 처리
+    if (!topButton) return;
     if (window.pageYOffset > showOffset) {
       topButton.classList.add('visible');
     } else {
