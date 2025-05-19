@@ -2094,9 +2094,12 @@ body {
 }
 
 /** main page */
+.main body {
+  padding-top: 72px;
+}
 .main-content {
   position: relative;
-  height: 940px;
+  height: 100%;
   max-width: 1776px;
   min-width: 1296px;
   width: 100%;
@@ -2104,10 +2107,10 @@ body {
 }
 .main-bg-wrap {
   position: absolute;
-  top: 72px;
+  top: 0px;
   left: 0;
   width: 100%;
-  height: 868px;
+  height: 100%;
   background-image: url("../../../frontAssets/pc/image/main_visual_main.png");
   background-size: 100% 100%;
   background-position: center;
