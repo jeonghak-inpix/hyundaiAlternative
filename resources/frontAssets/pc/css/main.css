@@ -185,10 +185,25 @@ body {
   margin-top: 8px;
 }
 .header .nav__sub-item a {
+  position: relative;
+  display: inline-block;
   font-size: 16px;
   line-height: 1.3;
   font-weight: 700;
   margin-bottom: 12px;
+}
+.header .nav__sub-item a::before {
+  display: none;
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #1a1a1a;
+}
+.header .nav__sub-item a:hover::before {
+  display: block;
 }
 
 .sub-page {
@@ -485,6 +500,12 @@ body {
   display: flex;
   align-items: center;
   text-decoration: none;
+  justify-content: space-between;
+}
+.news-title-wrapper {
+  display: flex;
+  flex: 1;
+  align-items: center;
 }
 .news-title {
   font-weight: 700;
@@ -492,7 +513,6 @@ body {
   line-height: 1.3;
   color: #1a1a1a;
   display: -webkit-box;
-  flex: 1;
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
@@ -510,6 +530,7 @@ body {
   background: url("../../../frontAssets/pc/image/icon_clip.png") no-repeat;
   background-size: contain;
   margin-left: 8px;
+  flex-shrink: 0;
 }
 .news-new {
   display: inline-block;
@@ -520,6 +541,7 @@ body {
   background: url("../../../frontAssets/pc/image/icon_new.png") no-repeat;
   background-size: contain;
   margin-left: 8px;
+  flex-shrink: 0;
 }
 .news-date {
   margin-left: auto;
@@ -528,6 +550,7 @@ body {
   font-weight: 700;
   line-height: 1.6;
   margin-left: 48px;
+  flex-shrink: 0;
 }
 .news-detail {
   padding-top: 40px;
@@ -675,8 +698,10 @@ body {
   margin-bottom: 8px;
   margin-right: 44px;
 }
+.careers-list__title-wrapper .news-file {
+  flex-shrink: 0;
+}
 .careers-list__title {
-  flex: 1;
   align-items: center;
   padding: 2px 0;
   font-size: 20px;
