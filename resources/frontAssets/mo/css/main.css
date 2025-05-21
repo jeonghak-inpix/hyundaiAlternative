@@ -793,6 +793,12 @@ footer {
   outline: none;
 }
 
+.search-box-careers_button {
+  flex: none;
+  display: flex;
+  align-items: center;
+}
+
 .careers-list + .news-detail {
   margin-top: 0;
 }

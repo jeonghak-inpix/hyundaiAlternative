@@ -887,6 +887,13 @@ footer {
   line-height: 1.4;
   font-weight: 700;
   outline: none;
+  // -webkit-appearance: textfield;
+}
+
+.search-box-careers_button {
+  flex: none;
+  display: flex;
+  align-items: center;
 }
 
 .careers-list {
