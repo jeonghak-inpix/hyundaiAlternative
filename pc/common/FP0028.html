@@ -76,8 +76,8 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn lg">오늘 하루 보지 않기</button>
-            <button type="button" class="btn lg">닫기</button>
+            <button type="button" class="btn lg" id="today-not-show">오늘 하루 보지 않기</button>
+            <button type="button" class="btn lg" id="close-modal">닫기</button>
           </div>
         </div>
       </div>
@@ -98,6 +98,14 @@
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         HyundaiModal.open('#error-modal');
+
+        document.getElementById('close-modal').addEventListener('click', function () {
+          HyundaiModal.close('#error-modal');
+        });
+
+        document.getElementById('today-not-show').addEventListener('click', function () {
+          HyundaiModal.close('#error-modal');
+        });
       });
     </script>
   </body>
