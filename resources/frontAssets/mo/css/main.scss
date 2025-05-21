@@ -839,7 +839,7 @@ footer {
     height: 32px;
     background: url('../../../frontAssets/mo/image/icon_search.png') no-repeat;
     background-size: contain;
-    font-size: 0;
+    // font-size: 0;
   }
 
   .divider {
@@ -855,7 +855,7 @@ footer {
     height: 32px;
     background: url('../../../frontAssets/mo/image/icon_filter.png') no-repeat;
     background-size: contain;
-    font-size: 0;
+    // font-size: 0;
   }
 
   .filter-count {
@@ -2242,6 +2242,7 @@ footer {
       font-size: 16px;
       line-height: 1.4;
       font-weight: 700;
+      color: #1a1a1a;
     }
   }
 }
