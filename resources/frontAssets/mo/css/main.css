@@ -150,6 +150,7 @@ body {
   background-color: #fff;
   z-index: 100;
   padding: 12px 28px;
+  overflow-y: auto;
 }
 .header .nav__item:not(:first-child) {
   margin-top: 20px;
