@@ -55,9 +55,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     headerNav.addEventListener('mouseleave', function () {
-      setTimeout(() => {
-        this.classList.remove('active');
-      }, 300);
+      // setTimeout(() => {
+      this.classList.remove('active');
+      // }, 300);
     });
   }
 
