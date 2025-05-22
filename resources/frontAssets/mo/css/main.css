@@ -796,14 +796,29 @@ footer {
   line-height: 1.4;
   font-weight: 700;
   outline: none;
+  background: #fff;
 }
 
-.search-box-careers__input::-webkit-search-cancel-button {
+input[type=search]::-webkit-search-cancel-button {
   display: none;
   -webkit-appearance: none;
   appearance: none;
 }
 
+@media (max-width: 360px) {
+  .search-box-careers__input {
+    font-size: 12px;
+  }
+  .input-keyword .search,
+  .input-keyword .filter {
+    width: 24px;
+    height: 24px;
+  }
+  .search-clear {
+    width: 18px;
+    height: 18px;
+  }
+}
 .search-box-careers_button {
   flex: none;
   display: flex;
