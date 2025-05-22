@@ -887,7 +887,11 @@ footer {
   line-height: 1.4;
   font-weight: 700;
   outline: none;
-  // -webkit-appearance: textfield;
+}
+.search-box-careers__input::-webkit-search-cancel-button {
+  display: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .search-box-careers_button {

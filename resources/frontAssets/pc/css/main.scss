@@ -1612,6 +1612,7 @@ body {
   &__item {
     position: relative;
     margin-bottom: 4px; // Space between list items
+    letter-spacing: -0.5px;
 
     &:last-child {
       margin-bottom: 0;
@@ -1639,16 +1640,16 @@ body {
     background-image: url('../../../frontAssets/pc/image/background_esg_2_3.jpeg');
   }
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 16px;
-  }
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   background-color: rgba(0, 0, 0, 0.6);
+  //   border-radius: 16px;
+  // }
 }
 
 .esg-divider {
@@ -2017,6 +2018,12 @@ body {
   &--center {
     height: 348px;
     flex: 1;
+  }
+
+  &--hcs {
+    img {
+      margin-top: -14px;
+    }
   }
 }
 
