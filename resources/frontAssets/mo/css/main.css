@@ -417,12 +417,13 @@ body {
 }
 
 .button-top-wrapper {
-  position: fixed;
-  bottom: 196px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: sticky;
+  bottom: 16px;
+  right: 0;
+  height: 40px;
   width: 100%;
-  z-index: 100;
+  z-index: 10;
+  margin: 24px 0 -64px;
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
@@ -432,9 +433,12 @@ body {
   opacity: 1;
   visibility: visible;
 }
+.button-top-wrapper.sticky {
+  margin: 0;
+}
 .button-top-wrapper .button-top {
   position: absolute;
-  right: 16px;
+  right: -8px;
   width: 40px;
   height: 40px;
   border-radius: 12px;
@@ -2121,6 +2125,9 @@ footer {
   height: 20px;
   background: url("../../../frontAssets/mo/image/arrow_nav.png") no-repeat right center;
   background-size: 100% 100%;
+}
+.main-nav__item:last-child:not(.active) > a {
+  border-bottom: 0;
 }
 .main-nav__sub-list {
   margin-top: 8px;
