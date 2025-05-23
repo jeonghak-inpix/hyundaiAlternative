@@ -129,10 +129,10 @@ const initGeneralModalTrigger = () => {
     button.addEventListener('click', function (e) {
       if (this.type === 'submit') e.preventDefault();
       const input =
-        this.closest('.input-keyword')?.querySelector('input[type="text"]') ||
-        this.closest('.search-form')?.querySelector('input[type="text"]') ||
-        this.closest('.search-box')?.querySelector('input[type="text"]') ||
-        this.closest('.search-box-careers')?.querySelector('input[type="text"]');
+        this.closest('.input-keyword')?.querySelector('input[type="search"]') ||
+        this.closest('.search-form')?.querySelector('input[type="search"]') ||
+        this.closest('.search-box')?.querySelector('input[type="search"]') ||
+        this.closest('.search-box-careers')?.querySelector('input[type="search"]');
 
       if (input && !input.value.trim()) {
         const modalId = this.getAttribute('data-modal-id') || generalModalId;
