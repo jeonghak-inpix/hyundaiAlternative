@@ -322,6 +322,7 @@ body {
   line-height: 14;
   flex: 1;
   outline: none;
+  background: #fff;
 }
 .search-button {
   width: 32px;
@@ -566,10 +567,12 @@ footer {
 .news-detail__download-btn {
   display: flex;
   align-items: center;
+  max-width: 100%;
   height: 40px;
   margin: 8px 0;
   padding-left: 16px;
   padding-right: 12px;
+  text-align: left;
   font-size: 14px;
   line-height: 1.4;
   font-weight: 700;
@@ -577,7 +580,14 @@ footer {
   background-color: #f2f2f2;
   border-radius: 6px;
 }
+.news-detail__download-btn .news-detail__download-text {
+  flex: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
 .news-detail__download-icon {
+  flex: none;
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -837,9 +847,6 @@ input[type=search]::-webkit-search-cancel-button {
 }
 .careers-list__item:not(:first-child) {
   border-top: 2px solid #f2f2f2;
-}
-.careers-list__item:only-child {
-  border-bottom: 2px solid #f2f2f2;
 }
 .careers-list__info {
   display: flex;
