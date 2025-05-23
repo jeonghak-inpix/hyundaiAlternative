@@ -933,6 +933,9 @@ input[type=search]::-webkit-search-cancel-button {
 }
 
 .modal-dialog-bottom {
+  display: flex;
+  flex-direction: column;
+  max-height: 70%;
   top: initial;
   bottom: 0;
   left: 0;
@@ -965,6 +968,8 @@ input[type=search]::-webkit-search-cancel-button {
   font-weight: 700;
 }
 .modal__content {
+  flex: 1 1 auto;
+  overflow-y: auto;
   padding: 0 24px 40px;
 }
 .modal .button-wrap {
@@ -1876,7 +1881,7 @@ input[type=search]::-webkit-search-cancel-button {
   right: 0;
   width: 100%;
   height: 212px;
-  border-radius: 16px;
+  border-radius: 12px;
   background-color: #f2f2f2;
   overflow: hidden;
 }
@@ -1948,7 +1953,7 @@ input[type=search]::-webkit-search-cancel-button {
 
 /* location */
 .location-section {
-  margin-top: 64px;
+  margin-top: 40px;
   font-size: 16px;
   line-height: 1.6;
   font-weight: 700;
@@ -1966,9 +1971,12 @@ input[type=search]::-webkit-search-cancel-button {
 .location-section__map {
   margin-top: 20px;
   margin-bottom: 24px;
+  border-radius: 12px;
+  overflow: hidden;
 }
 .location-section__map img {
   width: 100%;
+  vertical-align: top;
 }
 .location-section__info {
   display: flex;
