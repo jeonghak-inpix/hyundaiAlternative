@@ -2065,6 +2065,11 @@ input[type=search]::-webkit-search-cancel-button {
   color: #808080;
 }
 
+@media (max-width: 375px) {
+  .error-page__description br {
+    display: none;
+  }
+}
 .sub-page .modal .error-page__content {
   padding: 32px 4px 0 4px;
 }
