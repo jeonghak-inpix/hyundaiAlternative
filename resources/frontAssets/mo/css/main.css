@@ -66,6 +66,7 @@ button {
   cursor: pointer;
   border: none;
   background-color: transparent;
+  color: #1a1a1a;
 }
 
 input::-moz-placeholder {

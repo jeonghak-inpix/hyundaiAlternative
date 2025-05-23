@@ -1681,22 +1681,15 @@ body {
   margin: 80px 0 100px;
   background-color: #f2f2f2;
 
-  &::before,
-  &::after {
+  &::before {
     content: '';
     position: absolute;
-    top: 0;
-    width: 288px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -3px;
+    width: calc(100vw - 16px);
     height: 3px;
     background-color: #f2f2f2;
-  }
-
-  &::after {
-    left: -288px;
-  }
-
-  &::before {
-    right: -288px;
   }
 }
 
@@ -1882,22 +1875,15 @@ body {
   padding-bottom: 80px;
   border-bottom: 3px solid #f2f2f2;
 
-  &::before,
-  &::after {
+  &::before {
     content: '';
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     bottom: -3px;
-    width: 288px;
+    width: calc(100vw - 16px);
     height: 3px;
     background-color: #f2f2f2;
-  }
-
-  &::after {
-    left: -288px;
-  }
-
-  &::before {
-    right: -288px;
   }
 
   &__title {
@@ -2160,22 +2146,15 @@ body {
   padding-bottom: 80px;
   border-bottom: 3px solid #f2f2f2;
 
-  &::before,
-  &::after {
+  &::before {
     content: '';
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     bottom: -3px;
-    width: 288px;
+    width: calc(100vw - 16px);
     height: 3px;
     background-color: #f2f2f2;
-  }
-
-  &::after {
-    left: -288px;
-  }
-
-  &::before {
-    right: -288px;
   }
 }
 

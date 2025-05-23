@@ -1443,19 +1443,15 @@ body {
   margin: 80px 0 100px;
   background-color: #f2f2f2;
 }
-.esg-divider::before, .esg-divider::after {
+.esg-divider::before {
   content: "";
   position: absolute;
-  top: 0;
-  width: 288px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -3px;
+  width: calc(100vw - 16px);
   height: 3px;
   background-color: #f2f2f2;
-}
-.esg-divider::after {
-  left: -288px;
-}
-.esg-divider::before {
-  right: -288px;
 }
 
 /* ==========================================================================
@@ -1621,19 +1617,15 @@ body {
   padding-bottom: 80px;
   border-bottom: 3px solid #f2f2f2;
 }
-.company-introduction::before, .company-introduction::after {
+.company-introduction::before {
   content: "";
   position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: -3px;
-  width: 288px;
+  width: calc(100vw - 16px);
   height: 3px;
   background-color: #f2f2f2;
-}
-.company-introduction::after {
-  left: -288px;
-}
-.company-introduction::before {
-  right: -288px;
 }
 .company-introduction__title {
   font-size: 34px;
@@ -1857,19 +1849,15 @@ body {
   padding-bottom: 80px;
   border-bottom: 3px solid #f2f2f2;
 }
-.organization-chart::before, .organization-chart::after {
+.organization-chart::before {
   content: "";
   position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: -3px;
-  width: 288px;
+  width: calc(100vw - 16px);
   height: 3px;
   background-color: #f2f2f2;
-}
-.organization-chart::after {
-  left: -288px;
-}
-.organization-chart::before {
-  right: -288px;
 }
 
 .key-personnel {
