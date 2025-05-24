@@ -1325,6 +1325,18 @@ body {
   }
 }
 
+@supports (position: sticky) {
+  .button-top-wrapper {
+    position: sticky;
+    bottom: 32px;
+    height: 64px;
+    transform: translateX(
+      clamp(0px, calc((100vw - 100%) / 2 - 32px), 9999px)
+    );
+    margin: 44px 0 -108px;
+  }
+}
+
 .modal {
   position: fixed;
   top: 0;
