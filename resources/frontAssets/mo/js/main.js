@@ -239,17 +239,6 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', function () {
       if (window.scrollY > showOffset) {
         topButton.classList.add('visible');
-
-        const observer = new IntersectionObserver(entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              topButton.classList.remove('sticky');
-            } else {
-              topButton.classList.add('sticky');
-            }
-          });
-        });
-        observer.observe(topButton);
       } else {
         topButton.classList.remove('visible');
       }

@@ -546,10 +546,6 @@ body {
   visibility: visible;
 }
 
-.button-top-wrapper.sticky {
-  margin: 0;
-}
-
 .button-top-wrapper .button-top {
   position: absolute;
   right: -8px;
