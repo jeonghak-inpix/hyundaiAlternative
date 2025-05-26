@@ -46,12 +46,21 @@
 @font-face {
   font-family: 'SF-Pro';
   src:
-    url('../font/SF-Pro/SF-Pro-Italic.woff2') format('woff2'),
-    url('../font/SF-Pro/SF-Pro-Italic.woff') format('woff');
-  font-weight: normal;
-  font-style: italic;
+    url('../font/SF-Pro/SF-Pro.woff2') format('woff2'),
+    url('../font/SF-Pro/SF-Pro.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
   font-display: swap;
 }
+// @font-face {
+//   font-family: 'SF-Pro';
+//   src:
+//     url('../font/SF-Pro/SF-Pro.woff2') format('woff2'),
+//     url('../font/SF-Pro/SF-Pro.woff') format('woff');
+//   font-weight: 700;
+//   font-style: italic;
+//   font-display: swap;
+// }
 // 변수 정의
 $primary-color: #002c5f;
 $secondary-color: #00a5e5;
