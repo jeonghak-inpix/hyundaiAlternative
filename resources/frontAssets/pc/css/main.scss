@@ -1330,9 +1330,7 @@ body {
     position: sticky;
     bottom: 32px;
     height: 64px;
-    transform: translateX(
-      clamp(0px, calc((100vw - 100%) / 2 - 32px), 9999px)
-    );
+    transform: translateX(clamp(0px, calc((100vw - 100%) / 2 - 32px), 9999px));
     margin: 44px 0 -108px;
   }
 }
@@ -2386,6 +2384,11 @@ body {
 /* ==========================================================================
    Error Page Styles
    ========================================================================== */
+.hda.error {
+  .header {
+    box-shadow: 0px 2px 12px 0px #00000014;
+  }
+}
 
 .error-page {
   display: flex;
