@@ -34,31 +34,12 @@
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: 'SF-Pro';
   src:
     url('../font/SF-Pro/SF-Pro.woff2') format('woff2'),
     url('../font/SF-Pro/SF-Pro.woff') format('woff');
   font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'SF-Pro';
-  src:
-    url('../font/SF-Pro/SF-Pro.woff2') format('woff2'),
-    url('../font/SF-Pro/SF-Pro.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'SF-Pro';
-  src:
-    url('../font/SF-Pro/SF-Pro-Bold.woff2') format('woff2'),
-    url('../font/SF-Pro/SF-Pro-Bold.woff') format('woff');
-  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -71,6 +52,7 @@
   font-style: italic;
   font-display: swap;
 }
+
 // 변수 정의
 $primary-color: #002c5f;
 $secondary-color: #00a5e5;
@@ -459,6 +441,7 @@ body {
   line-height: 1.4;
   font-weight: 700;
   color: #808080;
+  letter-spacing: -0.5px;
 }
 
 .news-file {

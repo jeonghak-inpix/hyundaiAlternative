@@ -43,20 +43,6 @@
 }
 @font-face {
   font-family: "SF-Pro";
-  src: url("../font/SF-Pro/SF-Pro.woff2") format("woff2"), url("../font/SF-Pro/SF-Pro.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "SF-Pro";
-  src: url("../font/SF-Pro/SF-Pro-Bold.woff2") format("woff2"), url("../font/SF-Pro/SF-Pro-Bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "SF-Pro";
   src: url("../font/SF-Pro/SF-Pro-Italic.woff2") format("woff2"), url("../font/SF-Pro/SF-Pro-Italic.woff") format("woff");
   font-weight: normal;
   font-style: italic;
@@ -180,6 +166,9 @@ body {
   display: flex;
   -moz-column-gap: 24px;
        column-gap: 24px;
+}
+.header .nav__list > .nav__item > a {
+  font-family: "YouandiNewKr", sans-serif;
 }
 .header .nav__item {
   height: 72px;
