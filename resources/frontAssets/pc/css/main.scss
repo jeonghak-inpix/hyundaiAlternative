@@ -331,8 +331,8 @@ body {
     &::before {
       content: '';
       position: absolute;
-      bottom: 0;
-      right: 0;
+      bottom: -1px;
+      right: -1px;
       width: 312px;
       height: 132px;
       background: url('../../../frontAssets/pc/image/main_shape_right.png') no-repeat 100%;

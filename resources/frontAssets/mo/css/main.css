@@ -235,6 +235,7 @@ body {
   background-image: url("../../../frontAssets/mo/image/main_visual_assets.png");
 }
 .page-header .page-title {
+  position: relative;
   font-family: "YouandiNewKr", sans-serif;
   font-size: 28px;
   font-weight: 700;
