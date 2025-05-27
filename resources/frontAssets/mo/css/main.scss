@@ -223,25 +223,25 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 16px;
+    overflow: hidden;
 
-    &::before,
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(84, 27, 27, 0.2);
+    }
+
     &::after {
       content: '';
       position: absolute;
-      width: 48px;
-      top: 141px;
-      height: 48.6666px;
-      background-size: 100% 100%;
+      width: 112px;
+      bottom: -1px;
+      right: -1px;
+      height: 89px;
+      background-size: 100% auto;
       background-position: center;
-    }
-
-    &::before {
-      left: 0;
-      background-image: url('../../../frontAssets/mo/image/main_visual_mask_left.png');
-    }
-
-    &::after {
-      right: 0;
       background-image: url('../../../frontAssets/mo/image/main_visual_mask_right.png');
     }
 
@@ -1799,15 +1799,36 @@ input[type='search']::-webkit-search-cancel-button {
       &::before {
         content: '';
         position: absolute;
-        width: 64px;
-        height: 12px;
-        background: url('../../../frontAssets/mo/image/shape_64x12_gray.png') no-repeat;
+        width: 32px;
+        height: 13px;
+        background: url(../../../frontAssets/mo/image/shape_32x12_gray.png) no-repeat;
         background-size: 100% 100%;
         background-position: center;
-        left: 50%;
         top: -12px;
+        left: 50%;
         transform: translateX(-50%);
       }
+    }
+    &--hmc,
+    &--heng,
+    &--motor-group {
+      &::after {
+        content: '';
+        position: absolute;
+        width: 32px;
+        height: 13px;
+        background: url(../../../frontAssets/mo/image/shape_32x12_gray.png) no-repeat;
+        background-size: 100% 100%;
+        background-position: center;
+        top: 50%;
+        right: -22px;
+        transform: translateY(-50%) rotate(-90deg);
+      }
+    }
+    &--motor-group::after {
+      top: 102px;
+      right: calc(50% - 16px);
+      transform: rotate(-90deg);
     }
   }
 }
@@ -2401,10 +2422,10 @@ input[type='search']::-webkit-search-cancel-button {
   }
 }
 
-.sub-page .error-page {
+.sub-page .full .error-page {
   &__content {
-    max-height: calc(100vh - 199px);
-    max-height: calc(100dvh - 199px);
+    height: calc(100vh - 199px);
+    height: calc(100dvh - 199px);
   }
 
   &__title {
