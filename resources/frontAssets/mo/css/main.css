@@ -198,22 +198,21 @@ body {
   border-radius: 16px;
   overflow: hidden;
 }
-.page-header__content::before {
+.page-header__content::before, .page-header__content::after {
   content: "";
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(84, 27, 27, 0.2);
+  width: 48px;
+  top: 141px;
+  height: 48.6666px;
+  background-size: 100% 100%;
+  background-position: center;
+}
+.page-header__content::before {
+  left: 0;
+  background-image: url("../../../frontAssets/mo/image/main_visual_mask_left.png");
 }
 .page-header__content::after {
-  content: "";
-  position: absolute;
-  width: 112px;
-  bottom: -1px;
-  right: -1px;
-  height: 89px;
-  background-size: 100% auto;
-  background-position: center;
+  right: 0;
   background-image: url("../../../frontAssets/mo/image/main_visual_mask_right.png");
 }
 .page-header__content.about {
