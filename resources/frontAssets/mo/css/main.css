@@ -1528,6 +1528,11 @@ input[type=search]::-webkit-search-cancel-button {
   margin-top: 12px;
 }
 
+@media (max-width: 320px) {
+  .synergy-network__description br {
+    display: none;
+  }
+}
 .synergy-network__diagram {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
