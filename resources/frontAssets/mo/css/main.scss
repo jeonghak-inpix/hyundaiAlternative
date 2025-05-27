@@ -1459,13 +1459,6 @@ input[type='search']::-webkit-search-cancel-button {
   display: flex;
   gap: 12px;
 
-  &__phase {
-    margin-bottom: 30px;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
   .phase {
     flex: 1;
 
@@ -1590,13 +1583,16 @@ input[type='search']::-webkit-search-cancel-button {
     overflow: hidden;
     border-radius: 12px;
     font-size: 0; // figure와 img 사이 여백 제거
-    margin-bottom: 48px;
   }
 
   &__image {
     width: 100%;
     height: 100%;
     object-fit: cover; // 이미지 비율 유지하며 채우기
+  }
+
+  & + .business-card {
+    margin-top: 48px;
   }
 }
 
@@ -1865,7 +1861,7 @@ input[type='search']::-webkit-search-cancel-button {
     &::before {
       content: '';
       position: absolute;
-      width: 12px;
+      width: 14px;
       height: 64px;
       background: url('../../../frontAssets/mo/image/shape_12x64_maroon.png') no-repeat;
       background-size: 100% 100%;
@@ -1874,25 +1870,25 @@ input[type='search']::-webkit-search-cancel-button {
 
     &:nth-child(1):before {
       top: 50%;
-      right: -12px;
+      right: -13px;
       transform: translate(0, -50%);
     }
 
     &:nth-child(4):before {
       top: 50%;
-      left: -12px;
+      left: -13px;
       transform: translate(0, -50%);
     }
 
     &:nth-child(2):before {
       top: calc(100% + 6px);
-      right: 50%;
+      right: calc(50% - 6px);
       transform: translate(0, -50%) rotate(90deg);
     }
 
     &:nth-child(3):before {
       top: calc(0% - 6px);
-      right: 50%;
+      right: calc(50% - 6px);
       transform: translate(0, -50%) rotate(90deg);
     }
 
@@ -2152,7 +2148,6 @@ input[type='search']::-webkit-search-cancel-button {
 
   .person-card {
     position: relative;
-    margin-bottom: 40px;
 
     &__figure {
       z-index: -1;
@@ -2194,6 +2189,10 @@ input[type='search']::-webkit-search-cancel-button {
       line-height: 1.6;
       font-weight: 700;
       color: #8a1f2d;
+    }
+
+    & + .person-card {
+      margin-top: 40px;
     }
   }
 
