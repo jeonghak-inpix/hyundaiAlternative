@@ -261,8 +261,21 @@ body {
 }
 .page-header.about {
   background-image: url("../../../frontAssets/pc/image/main_visual_about.png");
+  background-position: 50% -10px;
 }
 .page-header.about::before {
+  background: url("../../../frontAssets/pc/image/main_mask_about.png") no-repeat 100% 50%;
+}
+.page-header.organization {
+  background-image: url("../../../frontAssets/pc/image/main_visual_organization.png");
+}
+.page-header.organization::before {
+  background: url("../../../frontAssets/pc/image/main_mask_about.png") no-repeat 100% 50%;
+}
+.page-header.location {
+  background-image: url("../../../frontAssets/pc/image/main_visual_location.png");
+}
+.page-header.location::before {
   background: url("../../../frontAssets/pc/image/main_mask_about.png") no-repeat 100% 50%;
 }
 .page-header.assets {

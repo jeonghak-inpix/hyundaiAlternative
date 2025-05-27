@@ -306,6 +306,22 @@ body {
 
     &.about {
       background-image: url('../../../frontAssets/pc/image/main_visual_about.png');
+      background-position: 50% -10px;
+      &::before {
+        background: url('../../../frontAssets/pc/image/main_mask_about.png') no-repeat 100% 50%;
+      }
+    }
+
+    &.organization {
+      background-image: url('../../../frontAssets/pc/image/main_visual_organization.png');
+
+      &::before {
+        background: url('../../../frontAssets/pc/image/main_mask_about.png') no-repeat 100% 50%;
+      }
+    }
+
+    &.location {
+      background-image: url('../../../frontAssets/pc/image/main_visual_location.png');
       &::before {
         background: url('../../../frontAssets/pc/image/main_mask_about.png') no-repeat 100% 50%;
       }
