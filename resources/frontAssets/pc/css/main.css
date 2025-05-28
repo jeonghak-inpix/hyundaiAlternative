@@ -2124,6 +2124,12 @@ body {
   width: 172px;
   height: 24px;
 }
+.modal-dialog .error-page__container .error-page__title {
+  margin-top: 32px;
+}
+.modal-dialog .error-page__container .error-page__info {
+  margin-top: 32px;
+}
 .modal-dialog .error-page__container .error-page__button {
   width: 100%;
   border-top: 2px solid #ebebeb;

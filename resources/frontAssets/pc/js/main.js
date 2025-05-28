@@ -30,8 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const headerNav = document.querySelector('.header__nav');
   const htmlElement = document.documentElement;
 
-  // 스크롤 이벤트 처리
-  window.addEventListener('scroll', function () {
+  const scrollEvent = () => {
     // 스크롤 위치가 0보다 크면 'scrolled' 클래스 추가, 아니면 제거
     if (window.pageYOffset > 0) {
       htmlElement.classList.add('scrolled');
@@ -46,7 +45,13 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
       topButton.classList.remove('visible');
     }
+  };
+
+  // 스크롤 이벤트 처리
+  window.addEventListener('scroll', function () {
+    scrollEvent();
   });
+  scrollEvent();
 
   // header__nav 마우스 이벤트 처리
   if (headerNav) {
