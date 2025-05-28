@@ -108,7 +108,19 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  font-family: $font-family-sf, 'Noto Sans', sans-serif;
+  // font-family: $font-family-sf, 'Noto Sans', sans-serif;
+  font-family:
+    -apple-system,
+    BlinkMacSystemfont,
+    AppleSDGothicNeo-Regular,
+    Noto Sans,
+    Roboto,
+    'SpoqaHanSansNeo',
+    Mulgun Gothic,
+    '맑은 고딕',
+    dotum,
+    '돋움',
+    sans-serif;
   line-height: 1.6;
   color: $text-color;
   background-color: $background-color;
