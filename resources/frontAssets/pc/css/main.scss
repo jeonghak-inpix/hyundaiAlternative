@@ -509,7 +509,7 @@ body {
     }
 
     .search {
-      margin-left: 4px;
+      // margin-left: 4px;
       width: 32px;
       height: 32px;
       font-size: 0;
@@ -856,7 +856,7 @@ body {
   &__title {
     // flex: 1;
     align-items: center;
-    padding: 2px 0;
+    // padding: 2px 0;
     font-size: 20px;
     font-weight: 700;
     line-height: 1.3;
@@ -877,7 +877,7 @@ body {
   }
 
   &__date {
-    font-size: 20px;
+    font-size: 16px;
     color: #808080;
     font-weight: 700;
     line-height: 1.6;
@@ -887,7 +887,7 @@ body {
     }
 
     .d-day {
-      margin-left: 12px;
+      margin-left: 10px;
       color: #fc642d;
     }
   }
@@ -1440,13 +1440,13 @@ body {
 
 .select-dropdown {
   position: absolute;
-  width: 239px;
-  top: -19px;
+  width: 262px;
+  top: -18px;
   left: -24px;
   background-color: #fff;
   border: 2px solid #1a1a1a;
   border-radius: 16px;
-  padding: 20px 24px 24px;
+  padding: 13px 23px 23px 22px;
 
   &__title {
     height: 32px;
@@ -1460,7 +1460,7 @@ body {
   }
 
   &__list {
-    margin-top: 26px;
+    margin: 26px -3px 0 0;
   }
 
   &__item {
@@ -1485,7 +1485,7 @@ body {
     }
 
     label {
-      width: 100%;
+      width: calc(100% - 32px);
       display: inline-block;
       font-size: 20px;
       line-height: 1.3;
