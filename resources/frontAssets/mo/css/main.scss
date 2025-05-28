@@ -35,29 +35,20 @@
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF-Pro';
+  font-family: 'Noto Sans';
   src:
-    url('../font/SF-Pro/SF-Pro.woff2') format('woff2'),
-    url('../font/SF-Pro/SF-Pro.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'SF-Pro';
-  src:
-    url('../font/SF-Pro/SF-Pro-Bold.woff2') format('woff2'),
-    url('../font/SF-Pro/SF-Pro-Bold.woff') format('woff');
-  font-weight: 700;
+    url('../font/NotoSans/NotoSans-Regular.woff2') format('woff2'),
+    url('../font/NotoSans/NotoSans-Regular.woff') format('woff');
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Noto Sans';
   src:
-    url('../font/NotoSans/NotoSans-Regular.woff2') format('woff2'),
-    url('../font/NotoSans/NotoSans-Regular.woff') format('woff');
-  font-weight: 400;
+    url('../font/NotoSans/NotoSans-Bold.woff2') format('woff2'),
+    url('../font/NotoSans/NotoSans-Bold.woff') format('woff');
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -68,7 +59,6 @@ $secondary-color: #00a5e5;
 $text-color: #1a1a1a;
 $background-color: #ffffff;
 $font-family-yn: 'YouandiNewKr';
-$font-family-sf: 'SF-Pro';
 
 // 기본 스타일 리셋
 * {
@@ -102,7 +92,9 @@ body {
   flex-direction: column;
   min-height: 100vh;
   min-height: 100dvh;
-  font-family: $font-family-sf, 'Noto Sans', sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans', Roboto, 'Malgun Gothic',
+    '맑은 고딕', sans-serif;
   line-height: 1.6;
   color: $text-color;
   background-color: $background-color;
