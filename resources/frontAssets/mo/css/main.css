@@ -207,8 +207,8 @@ body {
 .page-header__content::before {
   content: "";
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: -1px;
+  right: -1px;
   width: 112px;
   height: 89px;
   background-size: 100% 100%;
@@ -233,10 +233,10 @@ body {
   background-image: url("../../../frontAssets/mo/image/visual_img_management.png");
 }
 .page-header__content.business {
-  background-image: url("../../../frontAssets/mo/image/main_visual_business.png");
+  background-image: url("../../../frontAssets/mo/image/visual_img_business.png");
 }
 .page-header__content.assets {
-  background-image: url("../../../frontAssets/mo/image/main_visual_assets.png");
+  background-image: url("../../../frontAssets/mo/image/visual_img_assets.png");
 }
 .page-header .page-title {
   position: relative;
@@ -262,6 +262,10 @@ body {
 .main .page-header__content::before {
   left: 0;
   background-image: url("../../../frontAssets/mo/image/main_visual_mask_left.png");
+}
+.main .page-header__content::after {
+  right: 0;
+  background-image: url("../../../frontAssets/mo/image/main_visual_mask_right.png");
 }
 
 .content-container {

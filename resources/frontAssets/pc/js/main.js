@@ -318,3 +318,13 @@ const initDropdowns = () => {
     });
   });
 };
+
+// 운영체제(OS) 구분
+const userAgent = navigator.userAgent.toLowerCase();
+
+if (userAgent.includes('windows')) {
+  document.documentElement.classList.add('window');
+} else if (userAgent.includes('macintosh') || userAgent.includes('mac os')) {
+  document.documentElement.classList.add('mac');
+} else {
+}

@@ -236,8 +236,8 @@ body {
     &::before {
       content: '';
       position: absolute;
-      bottom: 0;
-      right: 0;
+      bottom: -1px;
+      right: -1px;
       width: 112px;
       height: 89px;
       background-size: 100% 100%;
@@ -269,11 +269,11 @@ body {
     }
 
     &.business {
-      background-image: url('../../../frontAssets/mo/image/main_visual_business.png');
+      background-image: url('../../../frontAssets/mo/image/visual_img_business.png');
     }
 
     &.assets {
-      background-image: url('../../../frontAssets/mo/image/main_visual_assets.png');
+      background-image: url('../../../frontAssets/mo/image/visual_img_assets.png');
     }
   }
 
@@ -306,6 +306,11 @@ body {
     &::before {
       left: 0;
       background-image: url('../../../frontAssets/mo/image/main_visual_mask_left.png');
+    }
+
+    &::after {
+      right: 0;
+      background-image: url('../../../frontAssets/mo/image/main_visual_mask_right.png');
     }
   }
 }
