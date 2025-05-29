@@ -113,7 +113,7 @@ body {
   margin: 0 auto;
 }
 .header__logo {
-  margin-left: 96px;
+  margin-left: 24px;
   font-size: 0;
 }
 .header__logo img {
@@ -2157,7 +2157,7 @@ body {
 }
 .main-visual {
   position: relative;
-  border-radius: 40px;
+  border-radius: 24px;
   overflow: hidden;
   max-width: 1776px;
   height: 868px;
@@ -2181,10 +2181,10 @@ body {
 .main-visual__title {
   margin: 0 0 40px;
   font-family: "YouandiNewKr";
-  font-size: 58px;
+  font-size: 48px;
   font-weight: 700;
   color: #fff;
-  line-height: 62px;
+  line-height: 56px;
 }
 .main footer {
   display: block;
