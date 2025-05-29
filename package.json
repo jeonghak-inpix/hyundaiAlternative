@@ -9,8 +9,8 @@
     "serve": "python3 -m http.server 8080",
     "start": "npm run sass & npm run serve",
     "format": "prettier --write \"**/*.{scss,css,html}\"",
-    "postcss:pc": "postcss resources/frontAssets/pc/css/main.css -o resources/frontAssets/pc/css/main.min.css",
-    "postcss:mo": "postcss resources/frontAssets/mo/css/main.css -o resources/frontAssets/mo/css/mo.min.css",
+    "postcss:pc": "postcss resources/frontAssets/pc/css/main.css -o resources/frontAssets/pc/css/main.min.css --no-map",
+    "postcss:mo": "postcss resources/frontAssets/mo/css/main.css -o resources/frontAssets/mo/css/main.min.css --no-map",
     "build:css": "npm run postcss:pc && npm run postcss:mo"
   },
   "devDependencies": {
