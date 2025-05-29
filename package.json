@@ -3,14 +3,21 @@
   "version": "1.0.0",
   "description": "HTML and SCSS project",
   "scripts": {
-    "sass:pc": "sass resources/frontAssets/pc/css/main.scss:resources/frontAssets/pc/css/main.css --watch",
-    "sass:mo": "sass resources/frontAssets/mo/css/main.scss:resources/frontAssets/mo/css/main.css --watch",
+    "sass:pc": "sass resources/frontAssets/pc/css/main.scss:resources/frontAssets/pc/css/main.css --no-source-map --watch",
+    "sass:mo": "sass resources/frontAssets/mo/css/main.scss:resources/frontAssets/mo/css/main.css --no-source-map --watch",
     "sass": "npm run sass:pc & npm run sass:mo",
     "serve": "python3 -m http.server 8080",
     "start": "npm run sass & npm run serve",
-    "format": "prettier --write \"**/*.{scss,css,html}\""
+    "format": "prettier --write \"**/*.{scss,css,html}\"",
+    "postcss:pc": "postcss resources/frontAssets/pc/css/main.css -o resources/frontAssets/pc/css/main.min.css",
+    "postcss:mo": "postcss resources/frontAssets/mo/css/main.css -o resources/frontAssets/mo/css/mo.min.css",
+    "build:css": "npm run postcss:pc && npm run postcss:mo"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^7.0.2",
+    "cssnano": "^7.0.7",
+    "postcss": "^8.5.4",
+    "postcss-cli": "^11.0.1",
     "prettier": "^3.2.5",
     "sass": "^1.71.0",
     "serve": "^14.2.4"
