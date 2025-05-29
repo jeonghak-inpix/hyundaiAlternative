@@ -305,6 +305,14 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
+
+  // 운영체제(OS) 구분
+  const ua = navigator.userAgent.toLowerCase();
+  if (ua.includes('android')) {
+    document.documentElement.classList.add('aos');
+  } else if (ua.includes('iphone') || ua.includes('ipad')) {
+    document.documentElement.classList.add('ios');
+  }
 });
 
 // 검색 키워드 관리
