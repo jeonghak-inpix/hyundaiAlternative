@@ -303,7 +303,7 @@ body {
   content: "";
   position: absolute;
   bottom: -1px;
-  right: -1px;
+  right: 0;
   width: 312px;
   height: 132px;
   background: url("../../../frontAssets/pc/image/main_shape_right.png") no-repeat 100%;
