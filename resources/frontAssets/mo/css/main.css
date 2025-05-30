@@ -873,6 +873,8 @@ input[type=search]::-webkit-search-cancel-button {
 }
 .careers-list__date {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   min-height: 24px;
   align-items: center;
   font-size: 14px;
