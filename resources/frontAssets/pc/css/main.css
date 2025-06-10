@@ -620,19 +620,27 @@ body {
   font-size: 0;
 }
 .news-detail__download-btn {
+  position: relative;
   display: inline-block;
   align-items: center;
   height: 44px;
   padding-left: 16px;
-  padding-right: 12px;
+  padding-right: 36px;
   font-size: 16px;
   line-height: 1.4;
   font-weight: 700;
   color: #1a1a1a;
   background-color: #f2f2f2;
   border-radius: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .news-detail__download-icon {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
   display: inline-block;
   font-size: 0;
   line-height: 0;
