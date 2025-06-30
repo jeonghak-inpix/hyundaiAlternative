@@ -333,12 +333,14 @@
         .to(pointer, {
           x: 2200,
           duration: 4,
-          ease: 'cubic-bezier(0.5, 0, 0.4, 0.9)',
+          // ease: 'cubic-bezier(0.5, 0, 0.4, 0.9)',
+          ease: 'power3.out',
         })
         .to(pointer, {
           x: 4400,
           duration: 3.2,
-          ease: 'cubic-bezier(0.6, 0.04, 0.9, 0.2)',
+          // ease: 'cubic-bezier(0.6, 0.04, 0.9, 0.2)',
+          ease: 'power3.in',
         });
 
       function calculateTopBox(object, range, nextObject = null) {
