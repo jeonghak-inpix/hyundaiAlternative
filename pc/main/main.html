@@ -170,11 +170,12 @@
         border-radius: 16px 0 0 0;
         background-size: 24px 24px;
 
+        /*
         transform: translateZ(0);
         backface-visibility: hidden;
 
         image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
+        image-rendering: crisp-edges; */
 
         will-change: transform, width, height;
 
@@ -242,21 +243,7 @@
         </nav>
       </div>
     </header>
-    <!-- <div
-      style="
-        z-index: 1000;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100px;
-        height: 100px;
-        background: red;
-      "
-    >
-      <button id="pause">👉 pause</button>
-      <br />
-      <button id="play">👉 play</button>
-    </div> -->
+
     <main class="main-content">
       <div class="main-visual">
         <img src="../../resources/frontAssets/pc/image/main_visual__.png" alt="" class="bg" />
@@ -436,7 +423,7 @@
           x = Math.round(CONFIG.BASE_WIDTH - width);
         }
 
-        gsap.set(object, { x, width, height, force3d: true });
+        gsap.set(object, { x, width, height });
       }
 
       function update() {
