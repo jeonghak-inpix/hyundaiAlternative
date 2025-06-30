@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="ko" class="hda main">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>현대얼터너티브</title>
+    <meta
+      name="description"
+      content="현대얼터너티브는 현대자동차그룹의 다섯 번째 금융사로, 지속 가능한 성장을 추구하는 대체투자 전문 자산운용사입니다."
+    />
+    <meta
+      name="keywords"
+      content="현대얼터너티브, Hyundai Alternative, 회사소개, 포트폴리오, ESG, 경영정보, 대체투자, 자산운용, 자산운용 파트너"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content=" 현대얼터너티브" />
+    <meta
+      property="og:description"
+      content="현대얼터너티브는 현대자동차그룹의 다섯 번째 금융사로, 지속 가능한 성장을 추구하는 대체투자 전문 자산운용사입니다."
+    />
+    <meta
+      property="og:image"
+      content="https://hyundaialternative.com/resources/frontAssets/pc/image/og.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://hyundaialternative.com/main" />
+    <meta property="og:site_name" content="현대얼터너티브" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta name="format-detection" content="telephone=no" />
+    <link
+      rel="preload"
+      href="../../resources/frontAssets/pc/font/YouandiNewKr/YouandiNewKrText-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="../../resources/frontAssets/pc/css/main.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <script src="../../resources/frontAssets/pc/js/main.js" defer></script>
+    <script src="./rangesData.js"></script>
+    <style>
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      .main-visual__title {
+        opacity: 0;
+        animation: fadeIn 1.8s cubic-bezier(0.65, 0, 0.35, 1) 1s forwards;
+      }
+      .main-visual__title + p {
+        opacity: 0;
+        animation: fadeIn 1.8s cubic-bezier(0.65, 0, 0.35, 1) 2.67s forwards;
+      }
+      .pointer {
+        position: absolute;
+        top: 420px;
+        left: 0;
+        width: 40px;
+        height: 40px;
+        background: #ffc107;
+        border-radius: 50%;
+        box-shadow: 0 0 20px rgba(255, 193, 7, 0.5);
+        z-index: 10;
+      }
+
+      .pointer::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 2px;
+        height: 868px;
+        background: rgba(255, 193, 7, 0.3);
+        transform: translate(-50%, -50%);
+        z-index: -1;
+      }
+
+      .box-wrap {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        &.top {
+          .box {
+            top: 0;
+            transform-origin: left bottom;
+            background-image: url('./shape2.svg');
+            background-repeat: no-repeat;
+            background-position: left bottom;
+            background-size: 12px 12px;
+            border-radius: 0 0 16px 0;
+            &::before {
+              top: 0;
+              bottom: 12px;
+              border-radius: 0 0 16px 0;
+            }
+            &:nth-child(2n)::before {
+              border-radius: 0 0 20px 0;
+            }
+
+            &::after {
+              content: '';
+              position: absolute;
+              right: -8px;
+              top: 0;
+              width: 12px;
+              height: 12px;
+              background: url('./shape2.svg') right 0 no-repeat;
+            }
+            &.hide::after {
+              display: none;
+            }
+          }
+        }
+        &.btm {
+          .box {
+            bottom: 0;
+            transform-origin: right bottom;
+            background-image: url('./shape.svg');
+            background-repeat: no-repeat;
+            background-position: right top;
+            background-size: 24px 24px;
+            &::before {
+              top: 12px;
+              border-radius: 16px 0 0 0;
+            }
+            &:nth-child(2n) {
+              border-radius: 24px 0 0 0;
+            }
+            &.show {
+              background-position: left top;
+            }
+            &.last {
+              &::after {
+                content: '';
+                position: absolute;
+                bottom: 0px;
+                left: -12px;
+                width: 12px;
+                height: 12px;
+                background: url(./shape.svg) right top no-repeat;
+              }
+            }
+          }
+        }
+      }
+
+      .box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        position: absolute;
+        left: 0;
+        border-radius: 16px 0 0 0;
+        background-size: 24px 24px;
+
+        transform: translateZ(0);
+        backface-visibility: hidden;
+
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+
+        will-change: transform, width, height;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: #fff;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <h1 class="header__logo">
+          <a href="/">
+            <img
+              src="../../resources/frontAssets/pc/image/hyundai_alternative_logo.png"
+              alt="현대얼터너티브"
+            />
+          </a>
+        </h1>
+        <nav class="header__nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#">회사소개</a>
+              <ul class="nav__sub-list">
+                <li class="nav__sub-item">
+                  <a href="#">회사소개</a>
+                </li>
+                <li class="nav__sub-item">
+                  <a href="#">포트폴리오</a>
+                </li>
+                <li class="nav__sub-item"><a href="#">오시는길</a></li>
+              </ul>
+            </li>
+            <li class="nav__item">
+              <a href="#">포트폴리오</a>
+              <ul class="nav__sub-list">
+                <li class="nav__sub-item"><a href="#">운용자산현황</a></li>
+                <li class="nav__sub-item"><a href="#">사업영역</a></li>
+              </ul>
+            </li>
+            <li class="nav__item">
+              <a href="#">ESG</a>
+              <ul class="nav__sub-list">
+                <li class="nav__sub-item"><a href="#">Risk & Compliance</a></li>
+                <li class="nav__sub-item"><a href="#">ESG 경영</a></li>
+              </ul>
+            </li>
+            <li class="nav__item">
+              <a href="#">경영정보</a>
+              <ul class="nav__sub-list">
+                <li class="nav__sub-item"><a href="#">회사소식</a></li>
+                <li class="nav__sub-item"><a href="#">경영공시</a></li>
+                <li class="nav__sub-item"><a href="#">펀드공시</a></li>
+                <li class="nav__sub-item"><a href="#">인재채용</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="header__nav-bg"></div>
+        </nav>
+      </div>
+    </header>
+    <!-- <div
+      style="
+        z-index: 1000;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100px;
+        height: 100px;
+        background: red;
+      "
+    >
+      <button id="pause">👉 pause</button>
+      <br />
+      <button id="play">👉 play</button>
+    </div> -->
+    <main class="main-content">
+      <div class="main-visual">
+        <img src="../../resources/frontAssets/pc/image/main_visual.png" alt="" class="bg" />
+        <div class="main-visual__text">
+          <p class="main-visual__title">기회를 발굴하고, 신뢰로 성장합니다.</p>
+          <p>
+            자산운용의 새로운 기준을 제시하기보다, ‘신뢰받는 운용사’라는 단 하나의 기준에
+            집중합니다.<br />
+            시장보다 먼저 기회를 읽고, 투자자보다 더 엄격한 기준으로 스스로를 검증합니다.<br />이것이
+            현대얼터너티브가 추구하는 방식입니다.
+          </p>
+        </div>
+      </div>
+      <div class="box-wrap top" id="topBoxWrap"></div>
+      <div class="box-wrap btm" id="btmBoxWrap">
+        <div class="pointer" id="pointer" style="opacity: 0"></div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__info">
+          <address class="footer__address">
+            서울특별시 영등포구 국회대로 66길 3 (현대카드빌딩 2관 5층)
+            <p class="footer__phone">대표전화 02-6011-0421</p>
+          </address>
+          <p class="footer__copyright">© Hyundai Alternative Co., Ltd.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- GSAP -->
+    <script src="../../resources/frontAssets/pc/js/gsap.min.js"></script>
+    <script>
+      const CONFIG = {
+        BASE_WIDTH: 1776,
+        COUNT: 14,
+      };
+
+      const pointer = document.getElementById('pointer');
+      const topBoxWrap = document.querySelector('#topBoxWrap');
+      const btmBoxWrap = document.getElementById('btmBoxWrap');
+      const topBoxes = [];
+      const btmBoxes = [];
+
+      // BoxWrap 안에 박스 생성
+      for (let i = 1; i <= CONFIG.COUNT; i++) {
+        const topDiv = document.createElement('div');
+        const btmDiv = document.createElement('div');
+
+        topDiv.className = 'box';
+        topDiv.id = `boxTop${i}`;
+        btmDiv.className = 'box';
+        btmDiv.id = `boxBtm${i}`;
+
+        btmBoxWrap.appendChild(btmDiv);
+        btmBoxes.push(btmDiv);
+        topBoxWrap.appendChild(topDiv);
+        topBoxes.push(topDiv);
+      }
+
+      // btmBox 시작 위치
+      const startPositions = [
+        0, 0, 178.45, 364, 575, 748, 933, 1400, 1600, 1800, 2000, 2200, 2400, 2600,
+      ];
+
+      // box별 범위 데이터 생성
+      const topRangeData = rangesData.topRanges;
+      const btmRangeData = rangesData.btmRanges;
+
+      // bg 애니메이션
+      gsap.to('.bg', {
+        scale: 1.2,
+        duration: 7.2,
+        ease: 'cubic-bezier(0.29, 0.25, 0.6, 1)',
+      });
+
+      // pointer 애니메이션 타임라인 생성
+      const pointerTL = gsap.timeline({
+        onComplete: function () {
+          // 루프 삭제
+          gsap.ticker.remove(update);
+          console.log('update end!!!');
+        },
+      });
+      pointerTL
+        .to(pointer, {
+          x: 2200,
+          duration: 4,
+          ease: 'cubic-bezier(0.5, 0, 0.4, 0.9)',
+        })
+        .to(pointer, {
+          x: 4400,
+          duration: 3.2,
+          ease: 'cubic-bezier(0.6, 0.04, 0.9, 0.2)',
+        });
+
+      function calculateTopBox(object, range, nextObject = null) {
+        const pointerX = gsap.getProperty(pointer, 'x');
+
+        const left = range.findLast(r => r.pointerX <= pointerX);
+        const right = range.find(r => r.pointerX >= pointerX && r !== left);
+
+        if (!left || !right || left.pointerX === right.pointerX) return;
+
+        const progress = (pointerX - left.pointerX) / (right.pointerX - left.pointerX);
+        const lerp = (a, b) => a + (b - a) * progress;
+        let width = Math.max(0, Math.round(lerp(left.width, right.width)));
+        let height = Math.max(0, Math.round(lerp(left.height, right.height)));
+
+        // 0에 가까운 값들도 0으로 처리
+        if (left.height === 0 && right.height === 0) {
+          height = 0;
+        } else if (height <= 1) {
+          // 1px 이하면 0으로 처리 (반올림으로 인한 잔여값 제거)
+          height = 0;
+        }
+
+        if (left.width === 0 && right.width === 0) {
+          width = 0;
+        } else if (width <= 1) {
+          width = 0;
+        }
+
+        // 뒤에 나오는 객체들의 width 합계로 밀려나는 거리 계산
+        let pushDistance = 0;
+        const index = topBoxes.indexOf(object);
+        if (index !== -1 && index < topBoxes.length - 1) {
+          for (let i = index + 1; i < topBoxes.length; i++) {
+            pushDistance += gsap.getProperty(topBoxes[i], 'width');
+          }
+        }
+        gsap.set(object, { x: pushDistance, width, height });
+      }
+
+      function calculateBtmBox(object, range, startX = 0, prevObject = null) {
+        const pointerX = gsap.getProperty(pointer, 'x');
+
+        // 포인터x 위치에 따른 객체의 크기를 부드럽게 계산
+        const left = range.findLast(function (r) {
+          return r.pointerX <= pointerX;
+        });
+
+        const right = range.find(function (r) {
+          return r.pointerX >= pointerX && r !== left;
+        });
+
+        if (!left || !right || left.pointerX === right.pointerX) return;
+
+        const progress = (pointerX - left.pointerX) / (right.pointerX - left.pointerX);
+        const lerp = function (a, b) {
+          return a + (b - a) * progress;
+        };
+        let width = Math.max(0, Math.round(lerp(left.width, right.width)));
+        let height = Math.max(0, Math.round(lerp(left.height, right.height)));
+
+        if (left.height === 0 && right.height === 0) {
+          height = 0;
+        } else if (height <= 1) {
+          // 1px 이하면 0으로 처리 (반올림으로 인한 잔여값 제거)
+          height = 0;
+        }
+
+        if (left.width === 0 && right.width === 0) {
+          width = 0;
+        } else if (width <= 1) {
+          // 1px 이하면 0으로 처리
+          width = 0;
+        }
+
+        let x;
+        if (prevObject) {
+          const prevX = gsap.getProperty(prevObject, 'x');
+          const prevW = gsap.getProperty(prevObject, 'width');
+          x = prevW <= 0.1 ? CONFIG.BASE_WIDTH - width : Math.round(prevX - width);
+        } else {
+          x = Math.round(CONFIG.BASE_WIDTH - width);
+        }
+
+        gsap.set(object, { x, width, height, force3d: true });
+      }
+
+      function update() {
+        console.log('update');
+        // ✅ Top 박스 업데이트
+        topBoxes.forEach(function (object, i) {
+          const nextObject = i < topBoxes.length - 1 ? topBoxes[i + 1] : null;
+
+          calculateTopBox(object, topRangeData[i], nextObject);
+
+          const height = gsap.getProperty(object, 'height');
+
+          if (height < 24) {
+            object.classList.add('hide');
+          } else {
+            object.classList.remove('hide');
+          }
+        });
+        // ✅ Bottom 박스 업데이트
+        btmBoxes.forEach(function (object, i) {
+          const prevObject = i > 0 ? btmBoxes[i - 1] : null;
+
+          calculateBtmBox(object, btmRangeData[i], startPositions[i], prevObject);
+
+          const width = gsap.getProperty(object, 'width');
+          const height = gsap.getProperty(object, 'height');
+
+          if (width <= 24) {
+            object.classList.add('show');
+          } else {
+            object.classList.remove('show');
+          }
+
+          if (i === btmBoxes.length - 1 && height >= 20) {
+            object.classList.add('last');
+          }
+        });
+      }
+
+      // 메인 업데이트 루프
+      pointerTL.timeScale(1);
+      pointerTL.play();
+      gsap.ticker.add(update);
+    </script>
+  </body>
+</html>
