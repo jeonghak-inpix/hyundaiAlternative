@@ -46,7 +46,7 @@
 @font-face {
   font-family: 'Noto Sans';
   src:
-    url('../font/NotoSans/NotoSans-Bold.woff2') format('woff2'),
+    url('../font/NotoSans/NotoSans-Bold.woff2') format('woff2'),19
     url('../font/NotoSans/NotoSans-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
@@ -224,17 +224,6 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 16px;
-
-    &::before {
-      content: '';
-      position: absolute;
-      bottom: -1px;
-      right: -1px;
-      width: 112px;
-      height: 89px;
-      background-size: 100% 100%;
-      background-image: url('../../../frontAssets/mo/image/visual_mask_sub.png');
-    }
 
     &.about {
       background-image: url('../../../frontAssets/mo/image/visual_img_about.png');
